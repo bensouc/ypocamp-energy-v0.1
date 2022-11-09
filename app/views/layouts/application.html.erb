@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main-container">
+      <div class="left" data-controller='enroll'>
+        <%= yield %>
+      </div>
+      <div class="right">
+      <%= image_tag "right.png" %>
+      </div>
+    </div>
   </body>
 </html>

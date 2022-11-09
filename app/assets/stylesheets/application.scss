@@ -1,6 +1,7 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/btns";
 @import "config/bootstrap_variables";
 
 // External libraries
@@ -9,4 +10,47 @@
 
 // Your CSS partials
 @import "components/index";
-// @import "pages/index";
+@import "pages/index";
+
+// Global config
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+h1,
+p {
+  color: $darkGrey;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 1280px) {
+  .left {
+    width: 60%;
+    padding: 40px 20px 40px 40px;
+  }
+  .right {
+    img {
+      width: 40%;
+      position: fixed;
+      bottom: 0;
+      size: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .left {
+
+    margin: 10px 20px;
+    // height: 100vh;
+  }
+  .right {
+    display: none;
+   }
+}

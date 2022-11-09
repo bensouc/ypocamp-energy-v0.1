@@ -9,7 +9,7 @@ gem "rails", "~> 7.0.4"
 # VROADSTUDIO SETUP
 gem 'bootstrap', '~> 5.2.2'
 gem "font-awesome-sass", "~> 6.1"
-gem "simple_form", github: "heartcombo/simple_form"
+gem "simple_form", github: "heartcombo/simple_form" #rails generate simple_form:install --bootstrap
 # END VROADSTUDIO SETUP
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
