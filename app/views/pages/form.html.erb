@@ -1,5 +1,5 @@
 <%= simple_form_for :mail, html: { novalidate: false } do |form|%>
-  <div class='form-box ' id='pledge' data-enroll-target='pledge'>
+  <div class='form-box ' id='pledge' data-enroll-target='formBox'>
     <div class="talk">
       <h1>Calculez combien d'énergie dépense votre camping-car, fourgon ou van</h1>
       <br/>
@@ -16,10 +16,10 @@
       <%= form.input :email , label: false, as: :email, required: true,input_html:{value:  "Votre adresse email*"}, html5: true%>
     </div>
     <div class="center  mt-3 mb-3">
-      <div class='ypo-btn' data-action='click->enroll#displayFridge'>CALCULER MA CONSOMMATION</div>
+      <div class='ypo-btn' data-action='click->enroll#displayNext'>CALCULER MA CONSOMMATION</div>
     </div>
   </div>
-  <div class="form-box d-none mt-3" id='fridge' data-enroll-target='fridge'>
+  <div class="form-box d-none mt-3" id='fridge' data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-snowflake"></i> REFRIGERATEUR 1/5</h2>
     <h1>Quel type de frigo possédez-vous ?</h1>
     <%= form.input :fridge, required: true,label: false, as: :radio_buttons,
@@ -29,12 +29,15 @@
                                     item_wrapper_class: 'domain-item',
                                     input_html: { class: 'selector domain-selector' }
                                     %>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displaySolar'>Suivant</div>
+    <div class="nav-btn">
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+    </div>
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
   </div>
-  <div class="form-box d-none mt-3" id='solar' data-enroll-target='solar'>
+  <div class="form-box d-none mt-3" id='solar' data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-solar-panel"></i> PANNEAU SOLAIRE 2/5</h2>
     <h1>Avez vous un panneau solaire ?</h1>
     <%= form.input :solar,required: true,label: false, as: :radio_buttons,
@@ -45,12 +48,16 @@
                                     html5: true,
                                     input_html: { class: 'selector domain-selector'}
                                     %>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displayBattery'>Suivant</div>
+    <div class="nav-btn">
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+    </div>
+
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
   </div>
-  <div class="form-box d-none mt-3" id='battery' data-enroll-target='battery'>
+  <div class="form-box d-none mt-3" id='battery' data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-car-battery"></i> BATTERIE CELLULE 3/5</h2>
     <h1>Quel type de batterie avez-vous ?</h1>
     <%= form.input :battery, required: true,label: false, as: :radio_buttons,
@@ -62,12 +69,16 @@
                                     html5: true,
                                     input_html: { class: 'selector domain-selector'}
                                     %>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displayKm'>Suivant</div>
+    <div class="nav-btn">
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+    </div>
+
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
   </div>
-  <div class="form-box d-none mt-3" id='km'  data-enroll-target='km'>
+  <div class="form-box d-none mt-3" id='km'  data-enroll-target='formBox'>
     <h2> <i class="fa-solid fa-gauge-high"></i> DISTANCE PARCOURUE 4/5</h2>
     <h1>Combien de kilomètres parcourez vous par jour ?</h1>
     <div class="d-flex">
@@ -75,12 +86,16 @@
       html5: true%>
       <div class='units'>KMS</div>
     </div>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displayFeatures'>Suivant</div>
+    <div class="nav-btn">
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+    </div>
+
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
   </div>
-  <div class="form-box d-none mt-3" id='features'  data-enroll-target='features'>
+  <div class="form-box d-none mt-3" id='features'  data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-list-check"></i> EQUIPEMENTS 5/5</h2>
     <div class="features-box1">
       <div class="feature-card">
@@ -138,6 +153,7 @@
         Ajouter un appareil
       </div>
     </div>
+    <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
