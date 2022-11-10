@@ -9,6 +9,7 @@ export default class extends Controller {
   }
   displayFridge(event) {
     console.log(event)
+    
     this.pledgeTarget.classList.add('d-none')
     this.fridgeTarget.classList.remove('d-none')
   }
@@ -29,3 +30,11 @@ export default class extends Controller {
     this.featuresTarget.classList.remove('d-none')
   }
 }
+
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};

@@ -14,9 +14,11 @@
     </div>
     <div class="email-box">
       <p>Pour commencer, merci d’indiquer votre adresse email</p>
-      <%= form.input :email , label: false, as: :email, value:  "Votre adresse email*", required: true, html5: true%> <%# input_html:{data:{enrol_form_target: "email"}}%>
+      <%= form.input :email , label: false, as: :email, required: true,input_html:{value:  "Votre adresse email*"}, html5: true%>
     </div>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displayFridge'>CALCULER MA CONSOMMATION</div>
+    <div class="center  mt-3 mb-3">
+      <div class='ypo-btn' data-action='click->enroll#displayFridge'>CALCULER MA CONSOMMATION</div>
+    </div>
   </div>
   <div class="form-box d-none mt-3" id='fridge' data-enroll-target='fridge'>
     <%= render "logo" %>
