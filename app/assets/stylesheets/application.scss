@@ -24,6 +24,7 @@ body {
 .main-container {
   display: flex;
   width: 100%;
+  margin: 0;
 }
 
 @media screen and (min-width: 1280px) {
@@ -43,11 +44,18 @@ body {
 
 @media screen and (max-width: 1280px) {
   .left {
-
-    margin: 10px 20px;
-    // height: 100vh;
+    width: 100vw;
+    padding: 10px 20px 10px 25px;
+    height: 100vh;
   }
   .right {
     display: none;
+    width: 0;
    }
+}
+
+
+.center{
+  display: flex;
+  justify-content: space-around;
 }
