@@ -3,7 +3,6 @@
     <div class="talk">
       <h1>Calculez combien d'énergie dépense votre camping-car, fourgon ou van</h1>
       <br/>
-      <br/>
       <p>Voyager en camping-car en toute autonomie n'est pas toujours facile.<br/>
         Plusieurs paramètres de consommation sont à prendre en compte.<br/>
         Nous avons développé pour vous un calculateur qui va vous permettre de
@@ -30,8 +29,8 @@
                                     input_html: { class: 'selector domain-selector' }
                                     %>
     <div class="nav-btn">
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
     </div>
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
@@ -49,10 +48,9 @@
                                     input_html: { class: 'selector domain-selector'}
                                     %>
     <div class="nav-btn">
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
     </div>
-
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
@@ -70,10 +68,9 @@
                                     input_html: { class: 'selector domain-selector'}
                                     %>
     <div class="nav-btn">
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
     </div>
-
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
@@ -87,10 +84,11 @@
       <div class='units'>KMS</div>
     </div>
     <div class="nav-btn">
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
-      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div>
+      <%# <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+      <div class='ypo-btn mt-3' data-action='click->enroll#displayNext'>Suivant</div> %>
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
     </div>
-
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>

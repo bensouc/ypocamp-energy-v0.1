@@ -45,3 +45,20 @@
     margin-right: 15px;
   }
 }
+
+.next-btn {
+  background-image: url(next.svg);
+  background-size: cover;
+  height: 30px;
+  width: 18px;
+  transform: rotate(180deg) !important;
+  cursor: pointer;
+}
+.previous-btn {
+  cursor: pointer;
+  background-image: url(next.svg);
+  background-size: cover;
+  height: 30px;
+  width: 18px;
+}
+
