@@ -1,6 +1,5 @@
 <%= simple_form_for :mail, html: { novalidate: false } do |form|%>
   <div class='form-box ' id='pledge' data-enroll-target='pledge'>
-    <%= render "logo" %>
     <div class="talk">
       <h1>Calculez combien d'énergie dépense votre camping-car, fourgon ou van</h1>
       <br/>
@@ -21,7 +20,6 @@
     </div>
   </div>
   <div class="form-box d-none mt-3" id='fridge' data-enroll-target='fridge'>
-    <%= render "logo" %>
     <h2><i class="fa-solid fa-snowflake"></i> REFRIGERATEUR 1/5</h2>
     <h1>Quel type de frigo possédez-vous ?</h1>
     <%= form.input :fridge, required: true,label: false, as: :radio_buttons,
@@ -37,7 +35,6 @@
     </div>
   </div>
   <div class="form-box d-none mt-3" id='solar' data-enroll-target='solar'>
-    <%= render "logo" %>
     <h2><i class="fa-solid fa-solar-panel"></i> PANNEAU SOLAIRE 2/5</h2>
     <h1>Avez vous un panneau solaire ?</h1>
     <%= form.input :solar,required: true,label: false, as: :radio_buttons,
@@ -54,7 +51,6 @@
     </div>
   </div>
   <div class="form-box d-none mt-3" id='battery' data-enroll-target='battery'>
-    <%= render "logo" %>
     <h2><i class="fa-solid fa-car-battery"></i> BATTERIE CELLULE 3/5</h2>
     <h1>Quel type de batterie avez-vous ?</h1>
     <%= form.input :battery, required: true,label: false, as: :radio_buttons,
@@ -72,11 +68,10 @@
     </div>
   </div>
   <div class="form-box d-none mt-3" id='km'  data-enroll-target='km'>
-    <%= render "logo" %>
     <h2> <i class="fa-solid fa-gauge-high"></i> DISTANCE PARCOURUE 4/5</h2>
     <h1>Combien de kilomètres parcourez vous par jour ?</h1>
     <div class="d-flex">
-      <%= form.input :kms ,required: true,label: false, as: :integer, input_html: { class: 'km-form' },
+      <%= form.input :kms ,required: true,label: false, as: :integer, input_html: { class: 'km-form', value: "1050" },
       html5: true%>
       <div class='units'>KMS</div>
     </div>
@@ -86,7 +81,6 @@
     </div>
   </div>
   <div class="form-box d-none mt-3" id='features'  data-enroll-target='features'>
-    <%= render "logo" %>
     <h2><i class="fa-solid fa-list-check"></i> EQUIPEMENTS 5/5</h2>
     <div class="features-box1">
       <div class="feature-card">
@@ -134,7 +128,7 @@
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
                                     html5: true,
-                                    input_html: { class: 'selector domain-selector'}
+                                    input_html: { class: 'selector domain-selector-small'}
                                     %>
     </div>
     <div class="grey-line"></div>
@@ -149,7 +143,6 @@
     </div>
   </div>
   <div class="form-box d-none results">
-    <%= render "logo" %>
     <div class="result-card">
       Vous consommez <br>
       <bold>40% de votre batterie en 24h</bold>

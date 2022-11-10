@@ -1,6 +1,6 @@
 // CSS 4 FORM ELEMENTS
 form {
-  height: 100%;
+  // height: 100%;
   option {
     color: $inactiveGrey;
   }
@@ -130,8 +130,8 @@ form {
   text-align: center;
   border: solid $primaryBlue;
   color: $primaryBlue;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  padding: 1rem;
+    border-radius: 15px;
   background-color: white;
   opacity: 0.7;
   transition-duration: 0.4s;
@@ -144,6 +144,60 @@ form {
 }
 
 .domain-selector:checked + label {
+  background-color: $activeGrey;
+  border-color: $activeGrey;
+  color: white;
+  opacity: 1;
+}
+
+.domain-selector + label {
+  display: block;
+  width: max-content;
+  cursor: pointer;
+  text-align: center;
+  border: solid $primaryBlue;
+  color: $primaryBlue;
+  padding: 1rem;
+    border-radius: 15px;
+  background-color: white;
+  opacity: 0.7;
+  transition-duration: 0.4s;
+  transition: 0.4s;
+  margin: 10px;
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.domain-selector:checked + label {
+  background-color:$primaryBlue;
+  border-color:$primaryBlue;
+  color: white;
+  opacity: 1;
+}
+
+.domain-selector-small + label {
+  display: block;
+  width: max-content;
+  cursor: pointer;
+  text-align: center;
+  border: solid $primaryBlue;
+  color: $primaryBlue;
+  padding: 0.25rem 1rem;
+    border-radius: 15px;
+  background-color: white;
+  opacity: 0.7;
+  transition-duration: 0.4s;
+  transition: 0.4s;
+  margin: 10px;
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.domain-selector-small:checked + label {
   background-color: $activeGrey;
   border-color: $activeGrey;
   color: white;
