@@ -144,7 +144,8 @@ form {
 }
 
 .domain-selector:checked + label {
-  background-color: $primaryBlue;
+  background-color: $activeGrey;
+  border-color: $activeGrey;
   color: white;
   opacity: 1;
 }
