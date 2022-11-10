@@ -27,12 +27,11 @@ form {
   }
 }
 
-
 // CSS 4 DIVS
-.talk{
+.talk {
   text-align: left;
   text-justify: distribute;
-  h1{
+  h1 {
     text-align: center;
   }
 }
@@ -45,24 +44,27 @@ form {
 }
 
 .km-form {
-  width: 10ch;
-  height: 2rem;
-  border-color: $primaryBlue;
+  width: 8ch;
+  height: 4rem;
+  border-color: #0089ca;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  font-size: 2rem;
+  padding-left: 1ch;
 }
 .units {
-  background-color: $primaryBlue;
+  background-color: #0089ca;
   color: white;
-  padding: 2px 10px 0 10px;
-  height: 2rem;
+  padding: 6px 10px 0 10px;
+  height: 4rem;
   border-top: thin solid;
   border-bottom: thin solid;
   border-right: thin solid;
-  border-color: $primaryBlue;
+  border-color: #0089ca;
   text-align: center;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
+  font-size: 2rem;
 }
 .btn-validate {
   height: 2rem;
@@ -73,6 +75,11 @@ form {
   flex-direction: row;
   flex-wrap: wrap;
   // gap: 30px;
+}
+.features-box2 {
+  h5{
+    margin-bottom: 2rem;
+  }
 }
 
 .feature-card {
@@ -93,7 +100,7 @@ form {
   margin-top: 5px;
   height: 10px;
   border-top: thin solid $inactiveGrey;
-  margin-bottom: 5px;
+  margin-bottom: 2rem;
   padding-right: 50px;
 }
 
@@ -106,9 +113,10 @@ form {
 // recupr from ensemble
 .wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   column-gap: 1rem;
+  padding-left: 2rem;
   flex-direction: row;
   align-content: space-between;
   align-items: center;
@@ -131,7 +139,7 @@ form {
   border: solid $primaryBlue;
   color: $primaryBlue;
   padding: 1rem;
-    border-radius: 15px;
+  border-radius: 15px;
   background-color: white;
   opacity: 0.7;
   transition-duration: 0.4s;
@@ -158,7 +166,7 @@ form {
   border: solid $primaryBlue;
   color: $primaryBlue;
   padding: 1rem;
-    border-radius: 15px;
+  border-radius: 15px;
   background-color: white;
   opacity: 0.7;
   transition-duration: 0.4s;
@@ -171,8 +179,8 @@ form {
 }
 
 .domain-selector:checked + label {
-  background-color:$primaryBlue;
-  border-color:$primaryBlue;
+  background-color: $primaryBlue;
+  border-color: $primaryBlue;
   color: white;
   opacity: 1;
 }
@@ -185,7 +193,7 @@ form {
   border: solid $primaryBlue;
   color: $primaryBlue;
   padding: 0.25rem 1rem;
-    border-radius: 15px;
+  border-radius: 15px;
   background-color: white;
   opacity: 0.7;
   transition-duration: 0.4s;

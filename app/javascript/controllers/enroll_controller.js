@@ -2,33 +2,44 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="enroll"
 export default class extends Controller {
-  static targets = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+  // static targets = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
 
+  static targets = ['formBox']
   connect() {
-    console.log("connexion OK")
+    console.log("enroll controller connected")
   }
-  displayFridge(event) {
-    console.log(event)
-    
-    this.pledgeTarget.classList.add('d-none')
-    this.fridgeTarget.classList.remove('d-none')
+
+  displayNext(event){
+    const TAB = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+    // console.log(this.formBoxTargets)
+    // const tab = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+    var id =""
+    if (event.path[2].id == "pledge") {
+      id = 'pledge'
+    } else {
+      id = event.path[2].id
+    }
+    console.log(event.path)
+    const index = TAB.indexOf(id)
+    this.formBoxTargets[index].classList.add('d-none')
+    console.log(this.formBoxTargets[index + 1])
+    this.formBoxTargets[index + 1].classList.remove('d-none')
   }
-  displaySolar() {
-    this.fridgeTarget.classList.add('d-none')
-    this.solarTarget.classList.remove('d-none')
+  displayBack(event) {
+    const TAB = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+    // console.log(this.formBoxTargets)
+    var id = ""
+    console.log(event.path)
+    if (event.path[1].id == "features") {
+      id = 'features'
+    } else {
+      id = event.path[2].id
+    }
+    const index = TAB.indexOf(id)
+    this.formBoxTargets[index].classList.add('d-none')
+    this.formBoxTargets[index - 1].classList.remove('d-none')
   }
-  displayBattery() {
-    this.solarTarget.classList.add('d-none')
-    this.batteryTarget.classList.remove('d-none')
-  }
-  displayKm() {
-    this.batteryTarget.classList.add('d-none')
-    this.kmTarget.classList.remove('d-none')
-  }
-  displayFeatures() {
-    this.kmTarget.classList.add('d-none')
-    this.featuresTarget.classList.remove('d-none')
-  }
+
 }
 
 const validateEmail = (email) => {
