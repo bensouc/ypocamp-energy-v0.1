@@ -1,10 +1,27 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap");
 
 // Define fonts for body and headers
-$body-font: 'Roboto', sans-serif;
-$headers-font: 'Roboto', sans-serif;
+$body-font: "Roboto", sans-serif;
+$headers-font: "Roboto", sans-serif;
+
+h1,
+p {
+  color: $darkGrey;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.325rem !important;
+  color: $primaryBlue !important;
+  font-weight: 400 !important;
+}
+p {
+  font-weight: 300;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

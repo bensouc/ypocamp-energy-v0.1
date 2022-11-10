@@ -16,9 +16,32 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border:  solid $primaryBlue;
+  border: solid $primaryBlue;
   border-radius: 15px;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+}
+
+.add-btn {
+  width: fit-content;
+  background-color: $primaryGreen;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+  // text-decoration: none;
+  // vertical-align: middle;
+  cursor: pointer;
+  border: solid $primaryGreen;
+  border-radius: 15px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  i {
+    // color: $primaryGreen;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
 }

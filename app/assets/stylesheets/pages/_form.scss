@@ -1,15 +1,7 @@
 form {
   height: 100%;
-  h1 {
-    font-weight: 300;
-  }
-  h2 {
-    color: $primaryBlue;
-    font-weight: 500;
-  }
-  p {
-    font-weight: 300;
-  }
+
+
 
   .select {
     border-color: $primaryBlue;
@@ -17,75 +9,72 @@ form {
   }
 }
 
-  .mail_email {
-    width: 40ch;
-    .form-control{
-
-      background-color: $backGrey;
-    }
+.mail_email {
+  width: 40ch;
+  .form-control {
+    background-color: $backGrey;
   }
-
-  // CSS 4 FORM ELEMENTS
-  option {
-    color: $inactiveGrey;
-  }
-
-  legend {
-    display: none;
-  }
-
-  // CSS 4 DIVS
-  .form-box {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 500px;
-  }
-
-  .km-form {
-    width: 10ch;
-    height: 2rem;
-    border-color: $primaryBlue;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .units {
-    background-color: $primaryBlue;
-    color: white;
-    padding: 2px 10px 0 10px;
-    height: 2rem;
-    border-top: thin solid;
-    border-bottom: thin solid;
-    border-right: thin solid;
-    border-color: $primaryBlue;
-    text-align: center;
-    border-top-right-radius: 14px;
-    border-bottom-right-radius: 14px;
-  }
-  .btn-validate {
-    height: 2rem;
-  }
-
-
-  .features-box1{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
 }
 
+// CSS 4 FORM ELEMENTS
+option {
+  color: $inactiveGrey;
+}
 
-  .feature-card {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-    height: 80px;
-    padding: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    width: 267px;
-  }
+legend {
+  display: none;
+}
+
+// CSS 4 DIVS
+.form-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
+}
+
+.km-form {
+  width: 10ch;
+  height: 2rem;
+  border-color: $primaryBlue;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.units {
+  background-color: $primaryBlue;
+  color: white;
+  padding: 2px 10px 0 10px;
+  height: 2rem;
+  border-top: thin solid;
+  border-bottom: thin solid;
+  border-right: thin solid;
+  border-color: $primaryBlue;
+  text-align: center;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+.btn-validate {
+  height: 2rem;
+}
+
+.features-box1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  height: 80px;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 267px;
+}
 
 .grey-line {
   margin-top: 5px;
@@ -99,4 +88,50 @@ form {
   font-size: larger;
   background-color: $backBlue;
   padding: 20px;
+}
+
+// recupr from ensemble
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+}
+
+.domain-item {
+  flex: 0 0 20%;
+}
+
+.selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.domain-selector + label {
+  display: block;
+  width: max-content;
+  cursor: pointer;
+  text-align: center;
+  border: solid $primaryBlue;
+  color: $primaryBlue;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background-color: white;
+  opacity: 0.7;
+  transition-duration: 0.4s;
+  transition: 0.4s;
+  margin: 10px;
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.domain-selector:checked + label {
+  background-color: $primaryBlue;
+  color: white;
+  opacity: 1;
 }
