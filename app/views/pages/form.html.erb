@@ -1,24 +1,9 @@
-<%= simple_form_for :mail, html: { novalidate: false } do |form|%>
-  <div class='form-box ' id='pledge' data-enroll-target='formBox'>
-    <div class="talk">
-      <h1>Calculez combien d'énergie dépense votre camping-car, fourgon ou van</h1>
-      <br/>
-      <p>Voyager en camping-car en toute autonomie n'est pas toujours facile.<br/>
-        Plusieurs paramètres de consommation sont à prendre en compte.<br/>
-        Nous avons développé pour vous un calculateur qui va vous permettre de
-        réaliser le bilan énergétique de votre véhicule pour connaître votre autonomie
-        réelle !
-      </p>
-    </div>
-    <div class="email-box">
-      <p>Pour commencer, merci d’indiquer votre adresse email</p>
-      <%= form.input :email , label: false, as: :email, required: true,input_html:{value:  "Votre adresse email*"}, html5: true%>
-    </div>
-    <div class="center  mt-3 mb-3">
-      <div class='ypo-btn' data-action='click->enroll#displayNext'>CALCULER MA CONSOMMATION</div>
-    </div>
-  </div>
-  <div class="form-box d-none mt-3" id='fridge' data-enroll-target='formBox'>
+
+<%= simple_form_for :prospect, html: { novalidate: false } do |form|%>
+<div class="invisible">
+  <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
+</div>
+  <div class="form-box mt-3" id='fridge' data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-snowflake"></i> REFRIGERATEUR 1/5</h2>
     <h1>Quel type de frigo possédez-vous ?</h1>
     <%= form.input :fridge, required: true,label: false, as: :radio_buttons,
@@ -29,7 +14,7 @@
                                     input_html: { class: 'selector domain-selector' }
                                     %>
     <div class="nav-btn">
-      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class=' mt-3'></div>
       <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
     </div>
     <div class="bottom-navbar mt-3">

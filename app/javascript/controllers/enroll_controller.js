@@ -9,13 +9,14 @@ export default class extends Controller {
     console.log("enroll controller connected")
   }
 
-  displayNext(event){
-    const TAB = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+  displayNext(event) {
+    const TAB = ["fridge", 'solar', 'battery', 'km', 'features']
     // console.log(this.formBoxTargets)
     // const tab = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
-    var id =""
-    if (event.path[2].id == "pledge") {
-      id = 'pledge'
+    var id = ""
+
+    if (event.path[2].id == "fridge") {
+      id = 'fridge'
     } else {
       id = event.path[2].id
     }
@@ -26,7 +27,7 @@ export default class extends Controller {
     this.formBoxTargets[index + 1].classList.remove('d-none')
   }
   displayBack(event) {
-    const TAB = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
+    const TAB = ["fridge", 'solar', 'battery', 'km', 'features']
     // console.log(this.formBoxTargets)
     var id = ""
     console.log(event.path)
