@@ -74,10 +74,12 @@ body {
 @media screen and (max-width: 800px) {
   .left {
     margin-top: 60px;
+    padding-top: 10px ;
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100vh - 50px);
     color: $white;
     position: fixed;
+
   }
   form{
     height: 100%;
@@ -107,6 +109,7 @@ body {
     color: $white !important;
   }
   #pledge h1 {
+    margin-top: 10px;
     font-size: 1.75rem !important;
     color:  $primaryGreen !important;
   }
