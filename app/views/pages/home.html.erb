@@ -1,4 +1,4 @@
-<%= simple_form_for :mail, url: mail_path, html: { novalidate: false } do |form|%>
+<%= simple_form_for :mail, url: mail_path, html: { novalidate: false, class:'background' } do |form|%>
   <div class='form-box ' id='pledge' data-enroll-target='formBox'>
     <div class="talk">
       <h1>Calculez combien d'énergie dépense votre camping-car, fourgon ou van</h1>
@@ -6,17 +6,17 @@
         Plusieurs paramètres de consommation sont à prendre en compte.<br/>
         Nous avons développé pour vous un calculateur qui va vous permettre de
         réaliser le bilan énergétique de votre véhicule pour connaître votre autonomie
-        réelle !
+        réelle!
       </p>
     </div>
     <div class="email-box">
       <p>Pour commencer, merci d’indiquer votre adresse email</p>
       <%= form.input :email , label: false, as: :email, required: true,input_html:{value:  "Votre adresse email*"}, html5: true%>
     </div>
-    <div class="center  mt-3 mb-3">
+    <div class="center  mb-5">
       <%# <div class='ypo-btn' data-action='click->enroll#displayNext'>CALCULER MA CONSOMMATION</div> %>
 
-        <%= form.submit "CALCULER MA CONSOMMATION", class:'ypo-btn' %>
+        <%= form.submit "CALCULER MA CONSOMMATION", class:'ypo-btn ' %>
 
     </div>
   </div>

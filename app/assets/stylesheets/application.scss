@@ -75,13 +75,20 @@ body {
   .left {
     margin-top: 60px;
     width: 100%;
+    height: calc(100% - 50px);
+    color: $white;
+    position: fixed;
+  }
+  form{
+    height: 100%;
     padding: 10px 20px 10px 25px;
-    height: calc(100vh-50px);
+  }
+  .background{
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("right.jpg");
     background-size: cover;
-    color: $white;
+
   }
-  .talk{
+    .talk{
     height: 50vh;
     margin-bottom: 15px;
     display: flex;
