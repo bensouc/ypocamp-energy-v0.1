@@ -48,6 +48,13 @@ form {
   justify-content: space-between;
   min-height: 500px;
 }
+.form-box1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  min-height: 500px;
+}
 
 .km-form {
   width: 8ch;
@@ -129,7 +136,7 @@ form {
 }
 
 .domain-item {
- 
+
 }
 
 .selector {
