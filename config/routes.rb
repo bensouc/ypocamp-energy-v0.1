@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root "pages#home"
   get "/form", to: "pages#form"
   post "/mail", to: "pages#mail"
+  post "calculate", to: "results#show"
 end

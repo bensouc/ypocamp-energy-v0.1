@@ -1,8 +1,7 @@
-
-<%= simple_form_for :prospect, html: { novalidate: false } do |form|%>
-<div class="invisible">
-  <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
-</div>
+<%= simple_form_for :prospect,url: calculate_path, html: { novalidate: false } do |form|%>
+  <div class="invisible">
+    <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
+  </div>
   <div class="form-box mt-3" id='fridge' data-enroll-target='formBox'>
     <h2><i class="fa-solid fa-snowflake"></i> REFRIGERATEUR 1/5</h2>
     <h1>Quel type de frigo possédez-vous ?</h1>
@@ -139,24 +138,31 @@
         Ajouter un appareil
       </div>
     </div>
-    <div class='ypo-btn mt-3' data-action='click->enroll#displayBack'>retour</div>
+    <div class="grey-line mt-3"></div>
+    <div class='previous-btn' data-action='click->enroll#displayBack'></div>
     <div class="bottom-navbar mt-3">
       Ceci est la future navbar
     </div>
-    <%= form.button :submit, '>> SOLUTIONS POUR AMELIORER MON AUTONOMIE <<', class: 'btn btn-primary' ,data: { confirm: "Etes vous sur?"} %>
+    <div class="ypo-btn" data-action='click->enroll#displayNext'>
+      <i class="fa-solid fa-angles-left"></i>
+      SOLUTIONS POUR AMELIORER MON AUTONOMIE
+      <i class="fa-solid fa-angles-right"></i>
+    </div>
   </div>
-  <%# <div class="form-box mt-3 d-none" id='results' data-enroll-target='formBox'>
+  <div class="form-box mt-3 d-none" id='results' data-enroll-target='formBox'>
     <div class="result-card">
       Vous consommez <br>
-      <bold>40% de votre batterie en 24h</bold>
-    </div>
-    <div class="result-card">
-      Vous pouvez voyager pendant environ<br>
-      <bold>5 jours en toute autonomie</bold>
-    </div>
-    <div class="result-card">
-      Vous consommez en moyenne<br>
-      <bold>x AH par jour</bold>
-    </div> %>
-  <%# </div> %>
+      <%= form.input :perc_by_day, as: :integer, input_html:{value: "40%"}, class: "form-to-text" %>
+      de votre batterie en 24h</bold>
+  </div>
+  <div class="result-card">
+    Vous pouvez voyager pendant environ<br>
+    <bold>5 jours en toute autonomie</bold>
+  </div>
+  <div class="result-card">
+    Vous consommez en moyenne<br>
+    <bold>x AH par jour</bold>
+  </div>
+  <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" , class: 'ypo-btn' ,data: { confirm: "Etes vous sur?"} %>
+</div>
 <% end %>
