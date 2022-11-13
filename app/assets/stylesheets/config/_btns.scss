@@ -3,7 +3,7 @@
   background-color: $primaryBlue;
   padding: 5px 10px;
   display: inline-block;
-  color: white;
+  color: white !important;
   font-family: var(--bs-btn-font-family);
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
@@ -61,4 +61,3 @@
   height: 30px;
   width: 18px;
 }
-

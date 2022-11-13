@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   displayNext(event) {
-    const TAB = ["fridge", 'solar', 'battery', 'km', 'features']
+    const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     // console.log(this.formBoxTargets)
     // const tab = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
     var id = ""
@@ -27,7 +27,7 @@ export default class extends Controller {
     this.formBoxTargets[index + 1].classList.remove('d-none')
   }
   displayBack(event) {
-    const TAB = ["fridge", 'solar', 'battery', 'km', 'features']
+    const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     // console.log(this.formBoxTargets)
     var id = ""
     console.log(event.path)
