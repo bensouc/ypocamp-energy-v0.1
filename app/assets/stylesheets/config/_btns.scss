@@ -1,9 +1,9 @@
 .ypo-btn {
-  width: fit-content;
-  background-color: $primaryBlue;
-  padding: 5px 10px;
+  width: fit-content !important;
+  background-color: $primaryBlue !important;
+  padding: 15px 25px;
   display: inline-block;
-  color: white;
+  color: white !important;
   font-family: var(--bs-btn-font-family);
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
@@ -16,8 +16,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: solid $primaryBlue;
-  border-radius: 15px;
+  border: solid $primaryBlue !important;
+  border-radius: 15px !important;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -61,4 +61,3 @@
   height: 30px;
   width: 18px;
 }
-

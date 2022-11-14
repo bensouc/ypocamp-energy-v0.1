@@ -9,11 +9,15 @@
         réelle!
       </p>
     </div>
-    <div class="email-box">
+    <div class="email-box" >
       <p>Pour commencer, merci d’indiquer votre adresse email</p>
-      <%= form.input :email , label: false, as: :email, required: true,input_html:{value:  "Votre adresse email*"}, html5: true%>
+      <%= form.input :email , label: false, as: :email, required: true,
+                              input_html:{value:  "Votre adresse email*",
+                                          data: {controller:'clean-form',
+                                                  action:'click->clean-form#clean'}},
+                              html5: true %>
     </div>
-    <div class="center  mb-5">
+    <div class="center  mb-5" >
       <%# <div class='ypo-btn' data-action='click->enroll#displayNext'>CALCULER MA CONSOMMATION</div> %>
 
         <%= form.submit "CALCULER MA CONSOMMATION", class:'ypo-btn ' %>
