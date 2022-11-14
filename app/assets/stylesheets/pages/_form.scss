@@ -66,7 +66,7 @@ form {
     height: calc(100vh - 55px);
     display: flex;
     flex-direction: column;
-    min-height: 500px;
+    // min-height: 500px;
     justify-content: space-between;
     padding: 0 15px 32px 20px;
   }
@@ -75,9 +75,17 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 500px;
+    // min-height: 500px;
     padding: 10px 15px 10px 25px;
   }
+}
+
+.form-box-2 {
+  display: flex;
+  flex-direction: column;
+  // min-height: 500px;
+  justify-content: space-between;
+  padding: 0 15px 32px 20px;
 }
 
 .km-form {
