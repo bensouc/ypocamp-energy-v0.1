@@ -3,12 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="calculate-energy"
 export default class extends Controller {
   static targets = ['form', 'percPerDay', 'autonomDays', 'ahPerDay', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
-  connect() {
-    // console.log("update controller connected")
-    this.percPerDayTarget.innerHTML = "<bold>84%</bold>"
-    this.autonomDaysTarget.innerHTML = "<bold>5 jours</bold>"
-    this.ahPerDayTarget.innerHTML = "<bold>1 AH par jour</bold>"
-  }
 
   changeInForm() {
     var data = []
@@ -16,20 +10,20 @@ export default class extends Controller {
       data.push(value)
     }
     // console.log(data)
-    // console.log(`fridge_type: ${data[3]}`)
-    // console.log(`solar: ${data[5]}`)
-    // console.log(`battery: ${data[7]}`)
-    // console.log(`km: ${data[8]}`)
-    // console.log(`phone: ${data[9]}`)
-    // console.log(`computer: ${data[10]}`)
-    // console.log(`bike: ${data[11]}`)
-    // console.log(`heater_type: ${data[13]}`)
-    // console.log(`Convertisseur: ${data[15]}`)
-    // console.log(`cafe: ${data[16]}`)
-    // console.log(`breather: ${data[17]}`)
-    // console.log(`hair drayer: ${data[18]}`)
-    // console.log(`kitchenaide: ${data[19]}`)
-    // console.log(`microwave: ${data[20]}`)
+    // console.log(`fridge_type: ${data[5]}`)
+    // console.log(`solar: ${data[7]}`)
+    // console.log(`battery: ${data[9]}`)
+    // console.log(`km: ${data[10]}`)
+    // console.log(`phone: ${data[11]}`)
+    // console.log(`computer: ${data[12]}`)
+    // console.log(`bike: ${data[13]}`)
+    // console.log(`heater_type: ${data[15]}`)
+    // console.log(`Convertisseur: ${data[17]}`)
+    // console.log(`cafe: ${data[18]}`)
+    // console.log(`breather: ${data[19]}`)
+    // console.log(`hair drayer: ${data[20]}`)
+    // console.log(`kitchenaide: ${data[21]}`)
+    // console.log(`microwave: ${data[22]}`)
 
     // define basic value obje[nb,AJ]
     const battery = [12, 67]
@@ -38,7 +32,8 @@ export default class extends Controller {
     const tv = [1, 2]
     //update non static values
     var fridge = [1, 44]
-    if (data[3] == "TRIMIXTE") {
+    console.log(data)
+    if (data[5] == "TRIMIXTE") {
       fridge = [1, 5]
     }
 
@@ -51,16 +46,24 @@ export default class extends Controller {
     this.percPerDayTarget.innerHTML = `<bold>${usagePercPerDay}%</bold>`
     this.formPercByDayTarget.value = `${usagePercPerDay}`
 
+
     // update result display and form value days of autonomy
     this.autonomDaysTarget.innerHTML = `<bold>${automDays} jours</bold>`
     this.formAutonomDaysTarget.value = `${automDays}`
-    console.log(`auton${automDays}`)
+
 
     // update result display and form value A per Day usage
-    console.log(`usage per day: ${readableUsagePerday}`)
-
-    this.ahPerDayTarget.innerHTML = `<bold>${readableUsagePerday} AH par jour</bold>`
+     this.ahPerDayTarget.innerHTML = `<bold>${readableUsagePerday} AH par jour</bold>`
     this.formAhPerDayTarget.value = `${readableUsagePerday}`
 
   }
+
+  connect() {
+    // console.log("update controller connected")
+    this.percPerDayTarget.innerHTML = "<bold>84%</bold>"
+    this.autonomDaysTarget.innerHTML = "<bold>1.2 jours</bold>"
+    this.ahPerDayTarget.innerHTML = "<bold>56 AH par jour</bold>"
+  }
+
+
 }

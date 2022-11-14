@@ -1,6 +1,9 @@
 <%= simple_form_for :prospect,url: calculate_path, method: 'get', html: { novalidate: false, data:{controller:'calculate-energy',calculate_energy_target:'form'}, id: 'calculate-energy',onKeyDown:'blockEnter(event)' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
+    <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
+    <%= form.input :autonom_days, as: :decimal,  label: false, input_html:{value: "1.2", class: "invisible",data:{calculate_energy_target:'formAutonomDays'}} %>
+    <%= form.input :ah_per_day, as: :decimal,  label: false, input_html:{value: "56", class: "invisible",data:{calculate_energy_target:'formAhPerDay'}} %>
   </div>
   <%= render 'fridge_form', form: form %>
   <%= render 'solar_form', form: form %>
@@ -8,9 +11,6 @@
   <%= render 'km_form', form: form %>
   <%= render 'features_form', form: form %>
   <div class="form-box mt-3 d-none" id='results' data-enroll-target='formBox'>
-    <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "40", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
-    <%= form.input :autonom_days, as: :decimal,  label: false, input_html:{value: "5", class: "invisible",data:{calculate_energy_target:'formAutonomDays'}} %>
-    <%= form.input :ah_per_day, as: :decimal,  label: false, input_html:{value: "1", class: "invisible",data:{calculate_energy_target:'formAhPerDay'}} %>
     <div class="result-card">
       Vous consommez&nbsp
       <h3 data-calculate-energy-target="percPerDay"></h3>
@@ -25,8 +25,9 @@
   <div class="result-card">
     Vous consommez en moyenne&nbsp
     <h3 data-calculate-energy-target="ahPerDay"></h3>
-
   </div>
-  <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" ,class: 'ypo-btn', data: { confirm: "Etes vous sur?"} %>
+  <div>
+    <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" ,class: 'ypo-btn', data: { confirm: "Etes vous sur?"} %>
+  </div>
 </div>
 <% end %>

@@ -1,13 +1,12 @@
 .ypo-btn {
-  width: fit-content !important;
+  width: fit-content ;
+  max-width: 90vw !important;
+  white-space: normal ;
+  height: fit-content;
   background-color: $primaryBlue !important;
-  padding: 15px 25px;
+  padding: 15px 25px !important;
   display: inline-block;
   color: white !important;
-  font-family: var(--bs-btn-font-family);
-  font-size: var(--bs-btn-font-size);
-  font-weight: var(--bs-btn-font-weight);
-  line-height: var(--bs-btn-line-height);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
