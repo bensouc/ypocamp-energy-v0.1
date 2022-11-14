@@ -6,7 +6,7 @@ export default class extends Controller {
 
   static targets = ['formBox']
   connect() {
-    console.log("enroll controller connected")
+    // console.log("enroll controller connected")
   }
 
   displayNext(event) {

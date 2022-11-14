@@ -4,6 +4,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['form', 'percPerDay', 'autonomDays', 'ahPerDay', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
 
+  connect() {
+    // console.log("update controller connected")
+    this.percPerDayTarget.innerHTML = "<bold>25%</bold>"
+    this.autonomDaysTarget.innerHTML = "<bold>3.9 jours</bold>"
+    this.ahPerDayTarget.innerHTML = "<bold>17 AH par jour</bold>"
+  }
   changeInForm() {
     var data = []
     for (const [key, value] of new FormData(this.formTarget)) {
@@ -32,7 +38,7 @@ export default class extends Controller {
     const tv = [1, 2]
     //update non static values
     var fridge = [1, 44]
-    console.log(data)
+    // console.log(data)
     if (data[5] == "TRIMIXTE") {
       fridge = [1, 5]
     }
@@ -46,24 +52,16 @@ export default class extends Controller {
     this.percPerDayTarget.innerHTML = `<bold>${usagePercPerDay}%</bold>`
     this.formPercByDayTarget.value = `${usagePercPerDay}`
 
-
     // update result display and form value days of autonomy
     this.autonomDaysTarget.innerHTML = `<bold>${automDays} jours</bold>`
     this.formAutonomDaysTarget.value = `${automDays}`
 
-
     // update result display and form value A per Day usage
-     this.ahPerDayTarget.innerHTML = `<bold>${readableUsagePerday} AH par jour</bold>`
+    this.ahPerDayTarget.innerHTML = `<bold>${readableUsagePerday} AH par jour</bold>`
     this.formAhPerDayTarget.value = `${readableUsagePerday}`
 
   }
 
-  connect() {
-    // console.log("update controller connected")
-    this.percPerDayTarget.innerHTML = "<bold>84%</bold>"
-    this.autonomDaysTarget.innerHTML = "<bold>1.2 jours</bold>"
-    this.ahPerDayTarget.innerHTML = "<bold>56 AH par jour</bold>"
-  }
 
 
 }
