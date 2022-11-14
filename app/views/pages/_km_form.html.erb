@@ -1,0 +1,21 @@
+<div class="form-box d-none mt-3" id='km'  data-enroll-target='formBox'>
+    <h2> <i class="fa-solid fa-gauge-high"></i> DISTANCE PARCOURUE 4/5</h2>
+    <h1>Combien de kilomètres parcourez vous par jour ?</h1>
+    <div class="d-flex">
+      <%= form.input :kms ,required: true,label: false, as: :integer,
+                      input_html: { class: 'km-form', value: "1050" ,
+                      data: {calculate_energy_target: 'km',
+                            action:'change->calculate-energy#changeInForm'}
+                      },
+                      html5: true
+                    %>
+      <div class='units'>KMS</div>
+    </div>
+    <div class="nav-btn">
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
+    </div>
+    <div class="bottom-navbar mt-3">
+      Ceci est la future navbar
+    </div>
+  </div>

@@ -29,7 +29,8 @@ form {
 
 // CSS 4 DIVS
 @media screen and (max-width: 800px) {
-  .talk, .email-box{
+  .talk,
+  .email-box {
     text-align: left;
     text-justify: distribute;
     p {
@@ -42,40 +43,42 @@ form {
   }
 }
 @media screen and (min-width: 800px) {
-.form-box {
-  // height: calc(100vh - 55px);
+  .form-box {
+    // height: calc(100vh - 55px);
     display: flex;
     flex-direction: column;
     min-height: 500px;
     justify-content: space-between;
     padding: 0 15px 32px 20px;
+  }
+  .form-box1 {
+    //formbox for home page
+    // height: calc(100vh - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 500px;
+    padding: 10px 15px 10px 25px;
+  }
 }
-.form-box1 { //formbox for home page
-  // height: calc(100vh - 55px);
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-  min-height: 500px;
-  padding: 10px 15px 10px 25px;
-}}
 @media screen and (max-width: 800px) {
-.form-box {
-  height: calc(100vh - 55px);
+  .form-box {
+    height: calc(100vh - 55px);
     display: flex;
     flex-direction: column;
     min-height: 500px;
     justify-content: space-between;
     padding: 0 15px 32px 20px;
+  }
+  .form-box1 {
+    height: calc(100vh - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 500px;
+    padding: 10px 15px 10px 25px;
+  }
 }
-.form-box1 {
-  height: calc(100vh - 55px);
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-  min-height: 500px;
-  padding: 10px 15px 10px 25px;
-}}
-
 
 .km-form {
   width: 8ch;
@@ -157,7 +160,6 @@ form {
 }
 
 .domain-item {
-
 }
 
 .selector {
@@ -244,4 +246,12 @@ form {
   border-color: $activeGrey;
   color: white;
   opacity: 1;
+}
+
+// result form box css
+.result-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  border-radius: 14px;
 }

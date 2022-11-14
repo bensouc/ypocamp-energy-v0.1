@@ -1,6 +1,6 @@
 .ypo-btn {
-  width: fit-content;
-  background-color: $primaryBlue;
+  width: fit-content !important;
+  background-color: $primaryBlue !important;
   padding: 15px 25px;
   display: inline-block;
   color: white !important;
@@ -16,8 +16,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: solid $primaryBlue;
-  border-radius: 15px;
+  border: solid $primaryBlue !important;
+  border-radius: 15px !important;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;

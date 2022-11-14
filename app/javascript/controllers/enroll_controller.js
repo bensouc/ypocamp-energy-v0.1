@@ -11,11 +11,7 @@ export default class extends Controller {
 
   displayNext(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
-    // console.log(this.formBoxTargets)
-    // const tab = ["pledge", "fridge", 'solar', 'battery', 'km', 'features']
     var id = ""
-
-    console.log(event.path)
     if (event.path[1].id == "features") {
       id = 'features'
     } else {
@@ -23,14 +19,12 @@ export default class extends Controller {
     }
     const index = TAB.indexOf(id)
     this.formBoxTargets[index].classList.add('d-none')
-    // console.log(this.formBoxTargets[index + 1])
     this.formBoxTargets[index + 1].classList.remove('d-none')
   }
+
   displayBack(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
-    // console.log(this.formBoxTargets)
     var id = ""
-    console.log(event.path)
     if (event.path[1].id == "features") {
       id = 'features'
     } else {
@@ -40,13 +34,4 @@ export default class extends Controller {
     this.formBoxTargets[index].classList.add('d-none')
     this.formBoxTargets[index - 1].classList.remove('d-none')
   }
-
 }
-
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};

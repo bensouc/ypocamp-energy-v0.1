@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
   def home; end
+
   def form
     @email = params.require(:email)
-
   end
-
 
   def mail
     @email = set_email

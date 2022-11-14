@@ -1,0 +1,24 @@
+
+<div class="form-box d-none mt-3" id='battery' data-enroll-target='formBox'>
+  <h2><i class="fa-solid fa-car-battery"></i> BATTERIE CELLULE 3/5</h2>
+  <h1>Quel type de batterie avez-vous ?</h1>
+  <%= form.input :battery, required: true,label: false, as: :radio_buttons,
+                                    collection: ["CLASSIQUE", "AGM","LIHTIUM","AUTRE"],
+                                    checked: 'CLASSIQUE',
+                                    collection_wrapper_tag: 'div',
+                                    collection_wrapper_class: 'wrapper',
+                                    item_wrapper_class: 'domain-item',
+                                    html5: true,
+                                    input_html: { class: 'selector domain-selector',
+                                    data: {calculate_energy_target: 'battery',
+                                                         action:'change->calculate-energy#changeInForm'}
+                                    }
+                                    %>
+  <div class="nav-btn">
+    <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+    <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
+  </div>
+  <div class="bottom-navbar mt-3">
+    Ceci est la future navbar
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="form-box d-none mt-3" id='solar' data-enroll-target='formBox'>
+    <h2><i class="fa-solid fa-solar-panel"></i> PANNEAU SOLAIRE 2/5</h2>
+    <h1>Avez vous un panneau solaire ?</h1>
+    <%= form.input :solar,required: true,label: false, as: :radio_buttons,
+                                    collection: ["AUCUN", "100W","130W","200W"],
+                                    checked: 'AUCUN',
+                                    collection_wrapper_tag: 'div',
+                                    collection_wrapper_class: 'wrapper',
+                                    item_wrapper_class: 'domain-item',
+                                    html5: true,
+                                    input_html: { class: 'selector domain-selector',
+                                    data: {calculate_energy_target: 'solar',
+                                                         action:'change->calculate-energy#changeInForm'}
+                                    }
+                                    %>
+    <div class="nav-btn">
+      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
+    </div>
+    <div class="bottom-navbar mt-3">
+      Ceci est la future navbar
+    </div>
+  </div>
