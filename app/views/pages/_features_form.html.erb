@@ -1,29 +1,29 @@
-  <div class="form-box-2 d-none mt-3" id='features'  data-enroll-target='formBox'>
-    <h2><i class="fa-solid fa-list-check"></i> EQUIPEMENTS 5/5</h2>
-    <div class="features-box1">
-      <div class="feature-card">
-        <label><i class="fa-solid fa-mobile-screen-button"></i> Téléphone</label>
-        <%= form.input :phone, as: :select, collection: (0..6),
+<div class="form-box-2 d-none mt-3" id='features'  data-enroll-target='formBox'>
+  <h2><i class="fa-solid fa-list-check"></i> EQUIPEMENTS 5/5</h2>
+  <div class="features-box1">
+    <div class="feature-card">
+      <label><i class="fa-solid fa-mobile-screen-button"></i> Téléphone</label>
+      <%= form.input :phone, as: :select, collection: (0..6),
         html5: true, label: false,
         prompt: "0", selected: 0 %>
-      </div>
-      <div class="feature-card">
-        <label><i class="fa-solid fa-desktop"></i> Ordinateur ou tablette</label>
-        <%= form.input :computer, as: :select, collection: (0..6),
-        html5: true, label: false,
-        prompt: "0", selected: 0 %>
-      </div>
-      <div class="feature-card">
-        <label><i class="fa-solid fa-bicycle"></i> Vélo éléctrique</label>
-        <%= form.input :bike, as: :select, collection: (0..6),
-        html5: true, label: false,
-        prompt: "0", selected: 0 %>
-      </div>
     </div>
-    <div class="grey-line"></div>
-    <div class="features-box2">
-      <h5> <i class="fa-solid fa-sun"></i> Type de chauffage</h5>
-      <%= form.input :heater_type, as: :radio_buttons,
+    <div class="feature-card">
+      <label><i class="fa-solid fa-desktop"></i> Ordinateur ou tablette</label>
+      <%= form.input :computer, as: :select, collection: (0..6),
+        html5: true, label: false,
+        prompt: "0", selected: 0 %>
+    </div>
+    <div class="feature-card">
+      <label><i class="fa-solid fa-bicycle"></i> Vélo éléctrique</label>
+      <%= form.input :bike, as: :select, collection: (0..6),
+        html5: true, label: false,
+        prompt: "0", selected: 0 %>
+    </div>
+  </div>
+  <div class="grey-line"></div>
+  <div class="features-box2">
+    <h5> <i class="fa-solid fa-sun"></i> Type de chauffage</h5>
+    <%= form.input :heater_type, as: :radio_buttons,
                                     collection: ["ALDE", "Gasoil","Gaz"],
                                     checked: 'ALDE',
                                     collection_wrapper_tag: 'div',
@@ -32,10 +32,10 @@
                                     html5: true
                                     # input_html: { class: 'selector domain-selector'}
                                     %>
-    </div>
-    <div class="grey-line"></div>
-    <div class="features-box3">
-      <%= form.input :other_features,  as: :check_boxes,
+  </div>
+  <div class="grey-line"></div>
+  <div class="features-box3">
+    <%= form.input :other_features,  as: :check_boxes,
                                     collection: ['Convertisseur',
                                     "Machine à café",
                                     "Respirateur",
@@ -54,22 +54,22 @@
                                             action:'click->calculate-energy#changeInForm'}
                                     }
                                     %>
-    </div>
-    <div class="grey-line"></div>
-    <div class="additionnal-features-box" data-controller='other-features'>
-      <div class="add-btn">
-        <i class="fa-solid fa-circle-plus"></i>
-        Ajouter un appareil
-      </div>
-    </div>
-    <div class="grey-line mt-3"></div>
-    <div class='previous-btn' data-action='click->enroll#displayBack'></div>
-    <div class="bottom-navbar mt-3">
-      Ceci est la future navbar
-    </div>
-    <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#displayNext'>
-      <i class="fa-solid fa-angles-left"></i>
-      CONNAITRE MA CONSOMMATION
-      <i class="fa-solid fa-angles-right"></i>
-    </div>
   </div>
+  <div class="grey-line"></div>
+  <div class="additionnal-features-box" >
+    <div class="additionnal-features" data-other-features-target='new'>
+    <%# <%= form.input :add_feature, as: :integer,collection:[{'name1'=> 100,'name2'=>250}], label: false %> 
+    </div>
+    <%= render 'additionnal_features' %>
+  </div>
+  <div class="grey-line mt-3"></div>
+  <div class='previous-btn' data-action='click->enroll#displayBack'></div>
+  <div class="bottom-navbar mt-3">
+    Ceci est la future navbar
+  </div>
+  <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#displayNext'>
+    <i class="fa-solid fa-angles-left"></i>
+    CONNAITRE MA CONSOMMATION
+    <i class="fa-solid fa-angles-right"></i>
+  </div>
+</div>
