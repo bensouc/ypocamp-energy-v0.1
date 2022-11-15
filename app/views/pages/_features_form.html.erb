@@ -42,6 +42,8 @@
                                     "Sèche-cheveux",
                                     "Robot Cuisine",
                                     "Micro-onde"],
+
+                                    label_method: lambda { |feature| render 'features_label', feature: feature},
                                     multiple: true,
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
