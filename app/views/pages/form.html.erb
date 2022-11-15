@@ -18,15 +18,36 @@
   </div>
   <div class="result-card">
     Vous pouvez voyager pendant environ&nbsp
-    <h3 data-calculate-energy-target="autonomDays"></h3>&nbsp
+    <h3 data-calculate-energy-target="autonomDays"></h3>
+    &nbsp
     jours en toute autonomie
   </div>
   <div class="result-card">
     Vous consommez en moyenne&nbsp
     <h3 data-calculate-energy-target="ahPerDay"></h3>
   </div>
-
-    <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" ,class: 'ypo-btn mb-2', data: { confirm: "Etes vous sur?"} %>
-
+  <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" ,class: 'ypo-btn mb-2', data: { confirm: "Etes vous sur?"} %>
 </div>
 <% end %>
+<%# modal %>
+<!-- Modal -->
+<div class="modal fade" id="addFeatureModal" tabindex="-1" aria-labelledby="addFeatureModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addFeatureModalLabel">Ajouter un appareil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<%= simple_form_for :new_feat do |feat| %>
+<%= feat.input :name, as: :text, input_html:{data:{other_features_target:'name'}} %>
+<%= feat.input :watt, as: :integer, input_html:{data:{other_features_target:'watt'}} %>
+<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-action='click->other-features#addFeatures'>Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
