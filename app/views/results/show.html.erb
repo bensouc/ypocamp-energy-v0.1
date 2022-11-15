@@ -1,3 +1,4 @@
-<h1>Results#show</h1>
-<p>Find me in app/views/results/show.html.erb</p>
-<%= @prospect %>
+<h1>info du prospect</h1>
+<% @prospect.each do |key, value| %>
+  <p><%= "#{key} : #{value}"%></p>
+<% end %>

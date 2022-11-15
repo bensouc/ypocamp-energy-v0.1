@@ -1,0 +1,19 @@
+<%# <% if feature == 'Convertisseur' %>
+  <%# <i class="fa-solid fa-bolt me-2"></i> <%= feature %>
+<%# <% elsif feature == 'Machine à café' %>
+  <%# <i class="fa-solid fa-mug-hot"></i>  <%= feature %>
+<%# <% end %>
+<% case feature%>
+<% when 'Convertisseur'  %>
+<i class="fa-solid fa-bolt me-2"></i> <%= feature %>
+<% when 'Machine à café'  %>
+  <i class="fa-solid fa-mug-hot"></i>  <%= feature %>
+<% when 'Respirateur'  %>
+ <i class="fa-solid fa-plug"></i>  <%= feature %>
+<% when 'Sèche-cheveux'  %>
+  <i class="fa-solid fa-wind"></i>  <%= feature %>
+<% when 'Robot Cuisine'  %>
+  <i class="fa-solid fa-robot"></i>  <%= feature %>
+<% when 'Micro-onde'  %>
+  <i class="fa-solid fa-kitchen-set"></i>  <%= feature %>
+  <% end %>

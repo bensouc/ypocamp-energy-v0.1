@@ -15,7 +15,7 @@
       </div>
       <div class="feature-card">
         <label><i class="fa-solid fa-bicycle"></i> Vélo éléctrique</label>
-        <%= form.input :computer, as: :select, collection: (0..6),
+        <%= form.input :bike, as: :select, collection: (0..6),
         html5: true, label: false,
         prompt: "0", selected: 0 %>
       </div>
@@ -42,6 +42,8 @@
                                     "Sèche-cheveux",
                                     "Robot Cuisine",
                                     "Micro-onde"],
+
+                                    label_method: lambda { |feature| render 'features_label', feature: feature},
                                     multiple: true,
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
