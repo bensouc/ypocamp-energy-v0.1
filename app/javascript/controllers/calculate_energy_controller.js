@@ -2,13 +2,29 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="calculate-energy"
 export default class extends Controller {
-  static targets = ['form', 'percPerDay', 'autonomDays', 'ahPerDay', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
+  static targets = ['form', 'features', 'percPerDay', 'autonomDays', 'ahPerDay', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
 
   connect() {
     // console.log("update controller connected")
+    // prospect_other_features_machine_à_café
+
+      const icone = {
+    'machine_à_café': 'test',
+    'respirateur': '',
+    'sèche-cheveux': '',
+    'robot_cuisine': '',
+    'micro-onde': '',
+    'convertisseur': '',}
+
     this.percPerDayTarget.innerHTML = "<bold>25%</bold>"
     this.autonomDaysTarget.innerHTML = "<bold>3.9 jours</bold>"
     this.ahPerDayTarget.innerHTML = "<bold>17 AH par jour</bold>"
+    // this.featuresTargets.forEach(target => {
+    //   // console.log(target.id.split('prospect_other_features_')[1] + 'test')
+    //   target.innerHTML = target.id.split('prospect_other_features_')[1] + 'test'
+    //   // if (target.id.value)
+    // })
+
   }
   changeInForm() {
     var data = []
