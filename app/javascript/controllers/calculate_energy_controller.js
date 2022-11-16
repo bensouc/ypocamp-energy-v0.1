@@ -7,15 +7,7 @@ export default class extends Controller {
   connect() {
     // console.log("update controller connected")
     // prospect_other_features_machine_à_café
-
-      const icone = {
-    'machine_à_café': 'test',
-    'respirateur': '',
-    'sèche-cheveux': '',
-    'robot_cuisine': '',
-    'micro-onde': '',
-    'convertisseur': '',}
-
+    this.element[this.identifier] = this
     this.percPerDayTarget.innerHTML = "<bold>25%</bold>"
     this.autonomDaysTarget.innerHTML = "<bold>3.9 jours</bold>"
     this.ahPerDayTarget.innerHTML = "<bold>17 AH par jour</bold>"
@@ -31,7 +23,7 @@ export default class extends Controller {
     for (const [key, value] of new FormData(this.formTarget)) {
       data.push(value)
     }
-    // console.log(data)
+    console.log(data)
     // console.log(`fridge_type: ${data[5]}`)
     // console.log(`solar: ${data[7]}`)
     // console.log(`battery: ${data[9]}`)
@@ -58,8 +50,18 @@ export default class extends Controller {
     if (data[5] == "TRIMIXTE") {
       fridge = [1, 5]
     }
+    const nbFeature = data.length
+    var featuresUsage = 0
+    const usageHourPerday = 5
+    console.log(` ${data[16]}`)
 
-    const usagePerday = (waterPomp[0] * waterPomp[1] + led[0] * led[1] + tv[0] * tv[1] + fridge[0] * fridge[1])
+      for (let i = 17; i < (nbFeature); i++) {
+        featuresUsage += ((data[i].split('=>')[1]) * usageHourPerday / battery[0])
+        console.log(featuresUsage)
+      }
+
+
+    const usagePerday = featuresUsage + (waterPomp[0] * waterPomp[1] + led[0] * led[1] + tv[0] * tv[1] + fridge[0] * fridge[1])
     const usagePercPerDay = Math.round((usagePerday / battery[1]) * 100)
     const automDays = Math.round(battery[1] / usagePerday * 10) / 10
     const readableUsagePerday = Math.round(usagePerday * 100) / 100
