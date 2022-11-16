@@ -1,5 +1,6 @@
 class ResultsController < ApplicationController
   def show
+    raise
     @prospect = set_params
   end
 

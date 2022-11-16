@@ -30,11 +30,10 @@
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
                                     html5: true
-                                    # input_html: { class: 'selector domain-selector'}
                                     %>
   </div>
   <div class="grey-line"></div>
-  <div class="features-box3">
+  <div class="features-box3" data-other-features-target='new'>
     <%= form.input :other_features,  as: :check_boxes,
                                     collection: ['Convertisseur',
                                     "Machine à café",
@@ -47,10 +46,9 @@
                                     multiple: true,
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
-                                    item_wrapper_class: 'domain-item',
                                     html5: true,
                                     input_html: { class: 'selector domain-selector-small',
-                                    data: {calculate_energy_target: 'features',
+                                    data: {calculate_energy_target: 'features',other_features_target:'last',
                                             action:'click->calculate-energy#changeInForm'}
                                     }
                                     %>
