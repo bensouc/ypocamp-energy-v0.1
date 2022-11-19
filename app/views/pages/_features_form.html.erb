@@ -30,27 +30,25 @@
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
                                     html5: true
-                                    # input_html: { class: 'selector domain-selector'}
                                     %>
   </div>
   <div class="grey-line"></div>
-  <div class="features-box3">
+  <div class="features-box3" data-other-features-target='new'>
     <%= form.input :other_features,  as: :check_boxes,
-                                    collection: ['Convertisseur',
-                                    "Machine à café",
-                                    "Respirateur",
-                                    "Sèche-cheveux",
-                                    "Robot Cuisine",
-                                    "Micro-onde"],
-
-                                    label_method: lambda { |feature| render 'features_label', feature: feature},
+                                    collection: [{name:'Convertisseur',value:100},
+                                    {name:'Machine à café',value:100},
+                                    {name:'Respirateur',value:100},
+                                    {name:'Sèche-cheveux',value:100},
+                                    {name:'Robot Cuisine',value:100},
+                                    {name:'Micro-onde',value:100}],
+                                    value_method: lambda { |feature| "#{feature[:name]}=>#{feature[:value]}"},
+                                    label_method: lambda { |feature| render 'features_label', feature: feature[:name]},
                                     multiple: true,
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
-                                    item_wrapper_class: 'domain-item',
                                     html5: true,
                                     input_html: { class: 'selector domain-selector-small',
-                                    data: {calculate_energy_target: 'features',
+                                    data: {calculate_energy_target: 'features',other_features_target:'last',
                                             action:'click->calculate-energy#changeInForm'}
                                     }
                                     %>

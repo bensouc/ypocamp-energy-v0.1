@@ -3,15 +3,15 @@
   <h2><i class="fa-solid fa-car-battery"></i> BATTERIE CELLULE 3/5</h2>
   <h1>Quel type de batterie avez-vous ?</h1>
   <%= form.input :battery, required: true,label: false, as: :radio_buttons,
-                                    collection: ["CLASSIQUE", "AGM","LIHTIUM","AUTRE"],
-                                    checked: 'CLASSIQUE',
+                                    collection: ["Plomb", "AGM","Gel","Lithium"],
+                                    checked: 'Plomb',
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
                                     html5: true,
                                     input_html: { class: 'selector domain-selector',
                                     data: {calculate_energy_target: 'battery',
-                                                         action:'change->calculate-energy#changeInForm'}
+                                          action:'change->calculate-energy#changeInForm'}
                                     }
                                     %>
   <div class="nav-btn">

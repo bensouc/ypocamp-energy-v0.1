@@ -1,4 +1,4 @@
-<%= simple_form_for :prospect,url: calculate_path, method: 'get', html: { novalidate: false, data:{controller:'calculate-energy',calculate_energy_target:'form'}, id: 'calculate-energy',onKeyDown:'blockEnter(event)' } do |form|%>
+<%= simple_form_for :prospect,url: calculate_path, method: 'get', html: { novalidate: false, data:{calculate_energy_target:'form'}, id: 'calculate-energy',onKeyDown:'blockEnter(event)' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
     <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
@@ -31,12 +31,12 @@
 <% end %>
 <%# modal %>
 <!-- Modal -->
-<div class="modal fade" id="addFeatureModal" tabindex="-1" aria-labelledby="addFeatureModalLabel" aria-hidden="true">
+<div class="modal fade" id="addFeatureModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addFeatureModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="addFeatureModalLabel">Ajouter un appareil</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action='click->calculate-energy#changeInForm'></button>
       </div>
       <div class="modal-body">
 <%= simple_form_for :new_feat do |feat| %>
@@ -44,9 +44,9 @@
 <%= feat.input :watt, as: :integer, input_html:{data:{other_features_target:'watt'}} %>
 <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" data-action='click->other-features#addFeatures'>Ajouter</button>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" data-action='click->calculate-energy#changeInForm'>Fermer</button>
+        <button type="button" class="btn btn-success text-white " data-action='click->other-features#addFeatures'>Ajouter</button>
       </div>
     </div>
   </div>
