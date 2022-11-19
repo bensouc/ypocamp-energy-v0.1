@@ -39,8 +39,10 @@ export default class extends Controller {
     // console.log(`kitchenaide: ${data[21]}`)
     // console.log(`microwave: ${data[22]}`)
 
-    // define basic value obje[nb,AJ]
-    const battery = [12, 67]
+    // define basic values obje[nb,AJ]
+    const capaBaseBattery = 100 //base
+    const battery = { 'Plomb': 0.6,'AGM':0.7,'Gel':0.85,'Lithium':99.99}
+    const specsBattery = [12, battery[data[9]] * capaBaseBattery]
     const waterPomp = [1, 3]
     const led = [1, 7]
     const tv = [1, 2]
@@ -55,15 +57,15 @@ export default class extends Controller {
     const usageHourPerday = 5
     console.log(` ${data[16]}`)
 
-      for (let i = 17; i < (nbFeature); i++) {
-        featuresUsage += ((data[i].split('=>')[1]) * usageHourPerday / battery[0])
-        console.log(featuresUsage)
-      }
+    for (let i = 17; i < (nbFeature); i++) {
+      featuresUsage += ((data[i].split('=>')[1]) * usageHourPerday / specsBattery[0])
+      console.log(featuresUsage)
+    }
 
 
     const usagePerday = featuresUsage + (waterPomp[0] * waterPomp[1] + led[0] * led[1] + tv[0] * tv[1] + fridge[0] * fridge[1])
-    const usagePercPerDay = Math.round((usagePerday / battery[1]) * 100)
-    const automDays = Math.round(battery[1] / usagePerday * 10) / 10
+    const usagePercPerDay = Math.round((usagePerday / specsBattery[1]) * 100)
+    const automDays = Math.round(specsBattery[1] / usagePerday * 10) / 10
     const readableUsagePerday = Math.round(usagePerday * 100) / 100
 
     // update result display and form value 4 usage % per day

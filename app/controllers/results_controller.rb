@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   def show
 
     @prospect = set_params
-    raise
+    # raise
   end
 
   private
