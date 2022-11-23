@@ -1,4 +1,6 @@
-<%= simple_form_for :prospect,url: calculate_path, method: 'get', html: { novalidate: false, data:{calculate_energy_target:'form'}, id: 'calculate-energy',onKeyDown:'blockEnter(event)' } do |form|%>
+<%= simple_form_for :prospect,url: calculate_path, method: 'get',
+                              html: {
+                                      data:{calculate_energy_target:'form'}, id: 'calculate-energy' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
     <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
@@ -40,8 +42,15 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for :new_feat do |feat| %>
-          <%= feat.input :name, as: :text, input_html:{data:{other_features_target:'name'}} %>
-          <%= feat.input :watt, as: :integer, input_html:{data:{other_features_target:'watt'}} %>
+          <%= feat.input :name, as: :text, required: true,label:false,
+                                input_html:{value:"Nom de l'appareil*",
+                                  data:{other_features_target:'name',
+                                                  controller:'clean-form',
+                                                  action:'click->clean-form#clean'}} %>
+          <div class="d-flex">
+            <%= feat.input :watt, as: :integer, label:false,input_html:{class: 'km-form',data:{other_features_target:'watt'}} %>
+            <div class='units'>Watts</div>
+          </div>
         <% end %>
       </div>
       <div class="modal-footer" >
