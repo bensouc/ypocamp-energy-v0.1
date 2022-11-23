@@ -39,10 +39,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action='click->calculate-energy#changeInForm'></button>
       </div>
       <div class="modal-body">
-<%= simple_form_for :new_feat do |feat| %>
-<%= feat.input :name, as: :text, input_html:{data:{other_features_target:'name'}} %>
-<%= feat.input :watt, as: :integer, input_html:{data:{other_features_target:'watt'}} %>
-<% end %>
+        <%= simple_form_for :new_feat do |feat| %>
+          <%= feat.input :name, as: :text, input_html:{data:{other_features_target:'name'}} %>
+          <%= feat.input :watt, as: :integer, input_html:{data:{other_features_target:'watt'}} %>
+        <% end %>
       </div>
       <div class="modal-footer" >
         <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" data-action='click->calculate-energy#changeInForm'>Fermer</button>
