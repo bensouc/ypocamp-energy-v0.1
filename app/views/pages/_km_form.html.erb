@@ -1,19 +1,35 @@
 <div class="form-box d-none mt-3" id='km'  data-enroll-target='formBox'>
-    <h2> <i class="fa-solid fa-gauge-high"></i> DISTANCE PARCOURUE 4/5</h2>
-    <h1>Combien de kilomètres parcourez vous par jour ?</h1>
-    <div class="d-flex">
-      <%= form.input :kms ,required: true,label: false, as: :integer,
+  <h2> <i class="fa-solid fa-gauge-high"></i> DISTANCE PARCOURUE 4/5</h2>
+  <h1>Combien de kilomètres parcourez vous par jour ?</h1>
+  <div class="d-flex">
+    <%= form.input :kms ,required: true,label: false, as: :integer,
                       input_html: { class: 'km-form', value: "1050" ,
                       data: {calculate_energy_target: 'km',
                             action:'change->calculate-energy#changeInForm'}
                       },
                       html5: true
                     %>
-      <div class='units'>KMS</div>
-    </div>
-    <div class="nav-btn">
-      <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
-      <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
-    </div>
-<%= render 'bottom_navbar' %>
+    <div class='units'>KMS</div>
   </div>
+  <%# <div class="nav-btn">
+    <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+    <div class='next-btn mt-3' data-action='click->enroll#displayNext'></div>
+  </div> %>
+  <div class="bottom-navbar mt-3" >
+    <div class="logo-navabar inactive" data-action='click->enroll#goToFridge'>
+      <i class="fa-solid fa-snowflake"></i>
+    </div>
+    <div class="logo-navabar inactive" data-action='click->enroll#goToSolar'>
+      <i class="fa-solid fa-solar-panel"></i>
+    </div>
+    <div class="logo-navabar inactive" data-action='click->enroll#goToBattery'>
+      <i class="fa-solid fa-car-battery"></i>
+    </div>
+    <div class="logo-navabar active" data-action='click->enroll#goToKm'>
+      <i class="fa-solid fa-gauge-high"></i>
+    </div>
+    <div class="logo-navabar inactive" data-action='click->enroll#goToFeatures'>
+      <i class="fa-solid fa-list-check"></i>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,23 @@
-.bottom-navbar {
-  width: 220px;
-  padding: 15px;
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.5rem;
+@media screen and (min-width: 800px) {
+  .bottom-navbar {
+    width: 272px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .bottom-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+  }
 }
 
 .logo-navabar {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   align-items: center;
   display: flex;
   justify-content: center;

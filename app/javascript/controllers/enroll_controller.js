@@ -31,6 +31,10 @@ export default class extends Controller {
       id = event.path[2].id
     }
     const index = TAB.indexOf(id)
+
+    // all fridgenavtargets classList remove inactive et add inactive
+    console.log(this.fridgenavTargets)
+    // display the right formbox
     this.formBoxTargets[index].classList.add('d-none')
     this.formBoxTargets[index - 1].classList.remove('d-none')
   }
@@ -48,6 +52,11 @@ export default class extends Controller {
     var id = ""
     id = event.path[3].id
     const index = TAB.indexOf(id) //find the actual formbox
+    // all fridgenavtargets classList remove inactive et add inactive
+    // console.log(this.fridgenavTargets.classList)
+    // this.solarnavTargets.forEach(target=>{
+    //   target.classList.remove('inactive')
+    // })
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[1].classList.remove('d-none') //display fridge form box
   }
