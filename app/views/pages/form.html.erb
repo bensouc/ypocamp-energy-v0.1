@@ -37,16 +37,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addFeatureModalLabel">Ajouter un appareil</h1>
+        <h1 class="modal-title fs-5" id="addFeatureModalLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action='click->calculate-energy#changeInForm'></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for :new_feat do |feat| %>
-          <%= feat.input :name, as: :text, required: true,label:false,
+        <div class="mail_email">
+          <%= feat.input :name, as: :string, required: true,label:false,
                                 input_html:{value:"Nom de l'appareil*",
                                   data:{other_features_target:'name',
                                                   controller:'clean-form',
                                                   action:'click->clean-form#clean'}} %>
+        </div>
           <div class="d-flex">
             <%= feat.input :watt, as: :integer, label:false,input_html:{class: 'km-form',data:{other_features_target:'watt'}} %>
             <div class='units'>Watts</div>

@@ -121,9 +121,6 @@ form {
   font-size: 2rem;
   width: fit-content;
 }
-.btn-validate {
-  height: 2rem;
-}
 
 .features-box1 {
   display: flex;
@@ -166,7 +163,7 @@ form {
   padding: 20px;
 }
 
-// recupr from ensemble
+// form wrapper
 .wrapper {
   display: flex;
   justify-content: center;
@@ -177,8 +174,6 @@ form {
   align-content: space-around;
   align-items: center;
 }
-
-
 
 .selector {
   position: absolute;
@@ -265,6 +260,17 @@ form {
   color: white;
   opacity: 1;
 }
+
+// CSS for MODAL Add feature
+
+.modal-content{
+  border: none;
+}
+.modal-header{
+  background-color: $primaryBlue;
+}
+
+
 
 // result form box css
 .result-card {
