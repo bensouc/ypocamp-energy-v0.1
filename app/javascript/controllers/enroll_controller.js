@@ -9,25 +9,25 @@ export default class extends Controller {
     // console.log("enroll controller connected")
   }
   stopEnterKey(event) {
-    console.log('stop enterkey')
+    // console.log('stop enterkey')
     event.preventDefault()
 
   }
   // useless feature
   displayNext(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
-    var id = event.path[5].id
-    if (event.path[5].id == "fridge") {
+    var id = event.composedPath()[5].id
+    if (event.composedPath()[5].id == "fridge") {
       id = 'fridge'
-    } else if (event.path[2].id == "km") {
+    } else if (event.composedPath()[2].id == "km") {
       id = 'km'
-    } else if (event.path[1].id == "features") {
+    } else if (event.composedPath()[1].id == "features") {
       id = 'features'
     }
     else {
-      id = event.path[4].id
+      id = event.composedPath()[4].id
     }
-    console.log(event.path)
+    // console.log(event.composedPath())
     const index = TAB.indexOf(id)
     this.formBoxTargets[index].classList.add('d-none')
     this.formBoxTargets[index + 1].classList.remove('d-none')
@@ -36,10 +36,10 @@ export default class extends Controller {
   displayBack(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    if (event.path[1].id == "features") {
+    if (event.composedPath()[1].id == "features") {
       id = 'features'
     } else {
-      id = event.path[2].id
+      id = event.composedPath()[2].id
     }
     const index = TAB.indexOf(id)
 
@@ -53,7 +53,7 @@ export default class extends Controller {
   goToFridge(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    id = event.path[3].id
+    id = event.composedPath()[3].id
     const index = TAB.indexOf(id) //find the actual formbox
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[0].classList.remove('d-none') //display fridge form box
@@ -61,7 +61,7 @@ export default class extends Controller {
   goToSolar(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    id = event.path[3].id
+    id = event.composedPath()[3].id
     const index = TAB.indexOf(id) //find the actual formbox
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[1].classList.remove('d-none') //display solar form box
@@ -69,7 +69,7 @@ export default class extends Controller {
   goToBattery(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    id = event.path[3].id
+    id = event.composedPath()[3].id
     const index = TAB.indexOf(id) //find the actual formbox
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[2].classList.remove('d-none') //display battery form box
@@ -77,7 +77,7 @@ export default class extends Controller {
   goToKm(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    id = event.path[3].id
+    id = event.composedPath()[3].id
     const index = TAB.indexOf(id) //find the actual formbox
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[3].classList.remove('d-none') //display km form box
@@ -85,7 +85,7 @@ export default class extends Controller {
   goToFeatures(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = ""
-    id = event.path[3].id
+    id = event.composedPath()[3].id
     const index = TAB.indexOf(id) //find the actual formbox
     this.formBoxTargets[index].classList.add('d-none') // hide the actual formbx
     this.formBoxTargets[4].classList.remove('d-none') //display features form box

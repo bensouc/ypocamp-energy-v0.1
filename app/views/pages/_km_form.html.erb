@@ -6,8 +6,7 @@
       <%= form.input :kms ,required: true,label: false, as: :integer,
                       input_html: { class: 'km-form', value: "75" ,
                       data: {calculate_energy_target: 'km',
-                            action:'change->calculate-energy#changeInForm',
-                            action:'submit->enroll#stopEnterKey'}
+                            action:'change->calculate-energy#changeInForm submit->enroll#stopEnterKey'}
                       },
                       html5: true
                     %>
