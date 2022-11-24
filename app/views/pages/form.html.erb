@@ -1,6 +1,5 @@
 <%= simple_form_for :prospect,url: calculate_path, method: 'get',
-                              html: {
-                                      data:{calculate_energy_target:'form'}, id: 'calculate-energy' } do |form|%>
+                              html: {data:{calculate_energy_target: 'form'}, id: 'calculate-energy' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
     <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>

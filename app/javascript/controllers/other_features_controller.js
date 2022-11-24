@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['input', 'new', 'name', 'watt', 'last']
   connect() {
-    console.log(this.lastTargets[5].parentElement.parentElement)
+    // console.log(this.lastTargets[5].parentElement.parentElement)
   }
   addFeatures() {
     // console.log(this.nameTarget.value)

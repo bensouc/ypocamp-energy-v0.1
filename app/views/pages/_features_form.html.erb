@@ -4,6 +4,7 @@
     <div class="feature-card">
       <label><i class="fa-solid fa-mobile-screen-button"></i> Téléphone</label>
       <%= form.input :phone, as: :select, collection: (0..6),
+        input_html: {data:{action:'click->calculate-energy#changeInForm'}},
         html5: true, label: false,
         prompt: "0", selected: 0 %>
     </div>
@@ -11,11 +12,13 @@
       <label><i class="fa-solid fa-desktop"></i> Ordinateur ou tablette</label>
       <%= form.input :computer, as: :select, collection: (0..6),
         html5: true, label: false,
+        input_html: {data:{action:'click->calculate-energy#changeInForm'}},
         prompt: "0", selected: 0 %>
     </div>
     <div class="feature-card">
       <label><i class="fa-solid fa-bicycle"></i> Vélo éléctrique</label>
       <%= form.input :bike, as: :select, collection: (0..6),
+      input_html: {data:{action:'click->calculate-energy#changeInForm'}},
         html5: true, label: false,
         prompt: "0", selected: 0 %>
     </div>
@@ -25,11 +28,14 @@
     <h5> <i class="fa-solid fa-sun"></i> Type de chauffage</h5>
     <%= form.input :heater_type, as: :radio_buttons,
                                     collection: ["ALDE", "Gasoil","Gaz"],
-                                    checked: 'ALDE',
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
-                                    html5: true
+                                    html5: true,
+                                    required: true,
+                                    input_html: {
+                                      data:{action:'click->calculate-energy#changeInForm'}
+                                      }
                                     %>
   </div>
   <div class="grey-line"></div>
@@ -56,30 +62,28 @@
   <div class="grey-line"></div>
   <div class="additionnal-features-box" >
     <div class="additionnal-features" data-other-features-target='new'>
-    <%# <%= form.input :add_feature, as: :integer,collection:[{'name1'=> 100,'name2'=>250}], label: false %>
     </div>
     <%= render 'additionnal_features' %>
   </div>
   <div class="grey-line mt-3"></div>
-  <%# <div class='previous-btn' data-action='click->enroll#displayBack'></div> %>
-<div class="bottom-navbar mt-3" >
-  <div class="logo-navabar inactive" data-action='click->enroll#goToFridge'>
-    <i class="fa-solid fa-snowflake"></i>
+  <div class="bottom-navbar mt-3" >
+    <div class="logo-navabar inactive" data-action='click->enroll#goToFridge'>
+      <i class="fa-solid fa-snowflake"></i>
+    </div>
+    <div class="logo-navabar inactive"  data-action='click->enroll#goToSolar'>
+      <i class="fa-solid fa-solar-panel"></i>
+    </div>
+    <div class="logo-navabar inactive"  data-action='click->enroll#goToBattery'>
+      <i class="fa-solid fa-car-battery"></i>
+    </div>
+    <div class="logo-navabar inactive"  data-action='click->enroll#goToKm'>
+      <i class="fa-solid fa-gauge-high"></i>
+    </div>
+    <div class="logo-navabar active"  data-action='click->enroll#goToFeatures'>
+      <i class="fa-solid fa-list-check"></i>
+    </div>
   </div>
-  <div class="logo-navabar inactive"  data-action='click->enroll#goToSolar'>
-    <i class="fa-solid fa-solar-panel"></i>
-  </div>
-  <div class="logo-navabar inactive"  data-action='click->enroll#goToBattery'>
-    <i class="fa-solid fa-car-battery"></i>
-  </div>
-  <div class="logo-navabar inactive"  data-action='click->enroll#goToKm'>
-    <i class="fa-solid fa-gauge-high"></i>
-  </div>
-  <div class="logo-navabar active"  data-action='click->enroll#goToFeatures'>
-    <i class="fa-solid fa-list-check"></i>
-  </div>
-</div>
   <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#displayNext'>
-    <i class="fa-solid fa-angles-left"></i>&nbspCONNAITRE MA CONSOMMATION&nbsp<i class="fa-solid fa-angles-right"></i>
+    <%= "<< CONNAITRE MA CONSOMMATION >>" %>
   </div>
 </div>

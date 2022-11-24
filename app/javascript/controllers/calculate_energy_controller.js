@@ -5,65 +5,61 @@ export default class extends Controller {
   static targets = ['form', 'features', 'percPerDay', 'autonomDays', 'ahPerDay', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
 
   connect() {
-    // console.log("update controller connected")
+    console.log("update controller connected")
     // prospect_other_features_machine_à_café
-    this.element[this.identifier] = this
     this.percPerDayTarget.innerHTML = "<bold>25%</bold>"
     this.autonomDaysTarget.innerHTML = "<bold>3.9 jours</bold>"
     this.ahPerDayTarget.innerHTML = "<bold>17 AH par jour</bold>"
-    // this.featuresTargets.forEach(target => {
-    //   // console.log(target.id.split('prospect_other_features_')[1] + 'test')
-    //   target.innerHTML = target.id.split('prospect_other_features_')[1] + 'test'
-    //   // if (target.id.value)
-    // })
-
   }
   changeInForm() {
+    console.log("Change in form")
     var data = []
     for (const [key, value] of new FormData(this.formTarget)) {
       data.push(value)
     }
     console.log(data)
-    // console.log(`fridge_type: ${data[5]}`)
-    // console.log(`solar: ${data[7]}`)
-    // console.log(`battery: ${data[9]}`)
-    // console.log(`km: ${data[10]}`)
-    // console.log(`phone: ${data[11]}`)
-    // console.log(`computer: ${data[12]}`)
-    // console.log(`bike: ${data[13]}`)
-    // console.log(`heater_type: ${data[15]}`)
-    // console.log(`Convertisseur: ${data[17]}`)
-    // console.log(`cafe: ${data[18]}`)
-    // console.log(`breather: ${data[19]}`)
-    // console.log(`hair drayer: ${data[20]}`)
-    // console.log(`kitchenaide: ${data[21]}`)
-    // console.log(`microwave: ${data[22]}`)
-
     // define basic values obje[nb,AJ]
     const capaBaseBattery = 100 //base
-    const battery = { 'Plomb': 0.6,'AGM':0.7,'Gel':0.85,'Lithium':99.99}
-    const specsBattery = [12, battery[data[9]] * capaBaseBattery]
-    const waterPomp = [1, 3]
-    const led = [1, 7]
-    const tv = [1, 2]
-    //update non static values
+    const battery = { 'Plomb': 0.6, 'AGM': 0.7, 'Gel': 0.85, 'Lithium': 0.99 }
+    const specsBattery = [12, battery[data[9]] * capaBaseBattery] //capa battery is battery 100AH/j * puissance de charge  battery[data[9]
+    const waterPomp = [1, 3] // 1 unit / 3Ah/j
+    const led = [1, 7] // 1 unit / 7Ah/j
+    const tv = [1, 2] // 1 unit / 2Ah/j
+    //declaration 4 non static values
     var fridge = [1, 44]
-    // console.log(data)
+    var heaterUsage = 0
+
+    // calculate fridge usage
     if (data[5] == "TRIMIXTE") {
       fridge = [1, 5]
     }
-    const nbFeature = data.length
-    var featuresUsage = 0
-    const usageHourPerday = 5
-    console.log(` ${data[16]}`)
+    //Solar Pannel calculation
+    const solarCharge = data[7] * 0.4 / specsBattery[0]
+    console.log(`solair is ${data[7]} et sa charge par heure est ${solarCharge}`)
 
-    for (let i = 17; i < (nbFeature); i++) {
-      featuresUsage += ((data[i].split('=>')[1]) * usageHourPerday / specsBattery[0])
-      console.log(featuresUsage)
+
+    //calculate heater usage in Ah/day
+    const heaterSpecs = {'ALDE': 10, 'Gasoil': 30, 'Gaz': 45 }
+    if (data[15] != undefined && data[15] != ''){
+      heaterUsage = heaterSpecs[data[15]] * 6
     }
 
 
-    const usagePerday = featuresUsage + (waterPomp[0] * waterPomp[1] + led[0] * led[1] + tv[0] * tv[1] + fridge[0] * fridge[1])
+    //calculate features & additionnal features usage in Ah/day
+    const nbFeature = data.length
+    var featuresUsage = 0
+    const usageHourPerday = 0.5
+    // console.log(` ${data[16]}`)
+
+
+    for (let i = 17; i < (nbFeature); i++) {
+      featuresUsage += ((data[i].split('=>')[1]) * usageHourPerday / specsBattery[0])
+      // console.log(featuresUsage)
+    }
+
+    console.log(`heater usage: ${heaterUsage}`)
+    console.log(`specsbatt usage: ${specsBattery }`)
+    const usagePerday = (waterPomp[0] * waterPomp[1] + led[0] * led[1] + tv[0] * tv[1] + fridge[1])
     const usagePercPerDay = Math.round((usagePerday / specsBattery[1]) * 100)
     const automDays = Math.round(specsBattery[1] / usagePerday * 10) / 10
     const readableUsagePerday = Math.round(usagePerday * 100) / 100
