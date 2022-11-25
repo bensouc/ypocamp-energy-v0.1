@@ -13,7 +13,7 @@ export default class extends Controller {
     event.preventDefault()
 
   }
-  // useless feature
+
   displayNext(event) {
     const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
     var id = event.composedPath()[5].id
@@ -31,6 +31,7 @@ export default class extends Controller {
     const index = TAB.indexOf(id)
     this.formBoxTargets[index].classList.add('d-none')
     this.formBoxTargets[index + 1].classList.remove('d-none')
+    window.scrollTo({top: 0})
   }
 
   displayBack(event) {

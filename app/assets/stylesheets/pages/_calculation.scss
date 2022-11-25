@@ -1,0 +1,205 @@
+@media screen and (min-width: 800px) {
+  .calculation {
+    max-width: 600px !important;
+    justify-content: space-evenly !important;
+    margin: 0 auto;
+  }
+  .results-card {
+    margin-bottom: 10px;
+  }
+  .season-selection {
+    display: flex;
+    justify-content: space-between;
+  }
+  .season-btn {
+    cursor: pointer;
+    width: 49%;
+    // height: 2.75rem;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    i {
+      margin-right: 10px;
+    }
+    &.inactive {
+      opacity: 0.4 !important;
+    }
+    &.summer {
+      color: $white;
+      background-color: $orange;
+    }
+    &.winter {
+      color: $white;
+      background-color: $primaryBlue;
+    }
+    margin-bottom: 10px;
+  }
+  .season-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1ch;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    &.summer {
+      margin-bottom: 10px;
+      background-color: #ffe8ad;
+    }
+    &.winter {
+      margin-bottom: 10px;
+      background-color: rgb(133, 194, 255);
+      i{
+        color: #f5eded;
+      }
+    }
+    .left-season-card {
+      font-size: 3rem;
+      margin: 0 0 0 19px;
+    }
+    .middle-season-card {
+      width: 305px;
+      padding: 12px 20px;
+      line-height: 16px;
+    }
+    .right-season-card {
+      padding-top: 28px;
+      .info-btn {
+        cursor: pointer;
+        font-size: 13px;
+        border: none;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: $darkGrey !important;
+        color: white !important;
+      }
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .calculation {
+    margin-top: 90px;
+  }
+  .results-card {
+    margin-bottom: 10px;
+  }
+  .season-selection {
+    display: flex;
+    justify-content: space-between;
+  }
+  .season-btn {
+    cursor: pointer;
+    width: 49%;
+    // height: 2.75rem;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    i {
+      margin-right: 10px;
+    }
+    &.inactive {
+      opacity: 0.4 !important;
+    }
+    &.summer {
+      color: $white;
+      background-color: $orange;
+    }
+    &.winter {
+      color: $white;
+      background-color: $primaryBlue;
+    }
+    margin-bottom: 10px;
+  }
+  .season-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1ch;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    &.summer {
+      margin-bottom: 10px;
+      background-color: #ffe8ad;
+    }
+    &.winter {
+      margin-bottom: 10px;
+      background-color: rgb(133, 194, 255);
+      i{
+        color: #f5eded;
+      }
+    }
+    .left-season-card {
+      font-size: 2rem;
+      margin: 0 0 0 10px;
+
+    }
+    .middle-season-card {
+      padding: 12px 20px;
+      line-height: 16px;
+      width: 239px;
+    }
+    .right-season-card {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      .info-btn {
+        cursor: pointer;
+        font-size: 13px;
+        border: none;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: $darkGrey !important;
+        color: white !important;
+      }
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+.infos-calcul {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  top: 20%;
+  left: 20%;
+  width: 300px;
+  height: 501px;
+  border: none;
+  border-radius: 10px;
+  background-color: $backGrey;
+  color: $darkGrey;
+  height: fit-content;
+  padding-bottom: 70px;
+  .btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px !important;
+  }
+}
+
+.final-cta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media screen and (max-width: 800px) {
+  .final-cta {
+    justify-content: center;
+  }
+}
