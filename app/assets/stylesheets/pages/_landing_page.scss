@@ -1,0 +1,53 @@
+@media screen and (max-width: 800px) {
+  .form-home{
+    height: 100%;
+    padding: 25px 20px;
+  }
+ .background-mobile {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("mobile_bg.png");
+    background-size: cover;
+  }
+  .mail_email {
+    width: 30ch;
+    margin: 0 auto;
+    .form-control {
+      background-color: $backGrey;
+    }
+  }
+
+  .talk {
+    color: $white;
+    // height: 50vh;
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+  }
+
+  #pledge p {
+    font-size: 1rem !important;
+    color: $white !important;
+  }
+  #pledge h1 {
+    margin-top: 25px;
+    font-size: 1.6rem !important;
+    color: $white;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+   .email-box {
+    text-align: center;
+
+    p {
+      font-style: italic;
+    }
+    h1 {
+      // color: $white; // if backgroun is added 4 mobile
+      text-align: center;
+    }
+  }
+}
