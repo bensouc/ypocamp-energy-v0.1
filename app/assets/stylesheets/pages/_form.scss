@@ -22,26 +22,14 @@ form {
 
 .mail_email {
   width: 30ch;
+  margin: 0 auto;
   .form-control {
     background-color: $backGrey;
   }
 }
 
 // CSS 4 DIVS
-@media screen and (max-width: 800px) {
-  .talk,
-  .email-box {
-    text-align: left;
-    text-justify: distribute;
-    p {
-      // color: $white; // if backgroun is added 4 mobile
-    }
-    h1 {
-      // color: $white; // if backgroun is added 4 mobile
-      text-align: center;
-    }
-  }
-}
+
 @media screen and (min-width: 800px) {
   .form-box {
     // height: calc(100vh - 55px);
@@ -63,23 +51,24 @@ form {
 }
 @media screen and (max-width: 800px) {
   .form-box {
-    height: calc(100vh - 55px);
+    height: calc(100vh - 106px);
     display: flex;
     flex-direction: column;
     // min-height: 500px;
     justify-content: space-between;
-    padding: 0 15px 32px 20px;
+    padding: 0 15px 0px 20px;
   }
   .form-box1 {
-    height: calc(100vh - 55px);
+    // height: calc(100vh - 90px);
+
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    // min-height: 500px;
-    padding: 10px 15px 10px 25px;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: 200%;
   }
 }
-
 
 .form-box-2 {
   display: flex;
@@ -89,12 +78,12 @@ form {
   padding: 0 15px 32px 20px;
 }
 
-.km-card{
+.km-card {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .km-form {
   width: 8ch;
@@ -263,14 +252,12 @@ form {
 
 // CSS for MODAL Add feature
 
-.modal-content{
+.modal-content {
   border: none;
 }
-.modal-header{
+.modal-header {
   background-color: $primaryBlue;
 }
-
-
 
 // result form box css
 .result-card {
