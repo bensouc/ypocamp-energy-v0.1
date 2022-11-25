@@ -11,27 +11,10 @@
   <%= render 'battery_form', form: form %>
   <%= render 'km_form', form: form %>
   <%= render 'features_form', form: form %>
-  <div class="form-box mt-3 d-none" id='results' data-enroll-target='formBox'>
-    <div class="result-card">
-      Vous consommez&nbsp
-      <h3 data-calculate-energy-target="percPerDay"></h3>
-      &nbspde votre batterie en 24h</bold>
-  </div>
-  <div class="result-card">
-    Vous pouvez voyager pendant environ&nbsp
-    <h3 data-calculate-energy-target="autonomDays"></h3>
-    &nbsp
-    jours en toute autonomie
-  </div>
-  <div class="result-card">
-    Vous consommez en moyenne&nbsp
-    <h3 data-calculate-energy-target="ahPerDay"></h3>
-  </div>
-  <%= form.button :submit, "SOLUTIONS POUR AMELIORER VOTRE AUTONOMIE" ,class: 'ypo-btn mb-2', data: { confirm: "Etes vous sur?"} %>
-</div>
+  <%= render 'result_form', form: form  %>
 <% end %>
 <%# modal %>
-<!-- Modal -->
+<!-- Modal ajout appareil -->
 <div class="modal fade" id="addFeatureModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addFeatureModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -41,13 +24,13 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for :new_feat do |feat| %>
-        <div class="mail_email">
-          <%= feat.input :name, as: :string, required: true,label:false,
+          <div class="mail_email">
+            <%= feat.input :name, as: :string, required: true,label:false,
                                 input_html:{value:"Nom de l'appareil*",
                                   data:{other_features_target:'name',
                                                   controller:'clean-form',
                                                   action:'click->clean-form#clean'}} %>
-        </div>
+          </div>
           <div class="d-flex">
             <%= feat.input :watt, as: :integer, label:false,input_html:{class: 'km-form',data:{other_features_target:'watt'}} %>
             <div class='units'>Watts</div>
