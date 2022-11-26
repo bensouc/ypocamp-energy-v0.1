@@ -3,7 +3,7 @@
   <h1>Combien de kilomètres parcourez vous par jour ?</h1>
   <div class="km-card">
     <div class="d-flex">
-      <%= form.input :kms ,required: true,label: false, as: :integer,
+      <%= form.input :kms ,label: false, as: :integer,
                       input_html: { class: 'km-form', value: "75" ,
                       data: {calculate_energy_target: 'km',
                             action:'change->calculate-energy#changeInForm submit->enroll#stopEnterKey'}

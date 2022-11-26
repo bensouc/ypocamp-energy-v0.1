@@ -3,4 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "popper"
 import "bootstrap"
+
 // import "./vrs_scripts/block_enter"

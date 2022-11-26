@@ -48,7 +48,7 @@
                                     {name:'Robot Cuisine',value:100},
                                     {name:'Micro-onde',value:100}],
                                     value_method: lambda { |feature| "#{feature[:name]}=>#{feature[:value]}"},
-                                    label_method: lambda { |feature| render 'features_label', feature: feature[:name]},
+                                    label_method: lambda { |feature| render 'pages/features/features_label', feature: feature[:name]},
                                     multiple: true,
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
@@ -63,7 +63,7 @@
   <div class="additionnal-features-box" >
     <div class="additionnal-features" data-other-features-target='new'>
     </div>
-    <%= render 'additionnal_features' %>
+    <%= render 'pages/features/additionnal_features' %>
   </div>
   <div class="grey-line mt-3"></div>
   <div class="bottom-navbar mt-3" >
@@ -83,7 +83,7 @@
       <i class="fa-solid fa-list-check"></i>
     </div>
   </div>
-  <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#displayNext'>
+  <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#finishForm'>
     <%= "<< CONNAITRE MA CONSOMMATION >>" %>
   </div>
 </div>
