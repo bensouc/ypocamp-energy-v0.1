@@ -1,7 +1,7 @@
 <div class="form-box mt-3" id='fridge' data-enroll-target='formBox'>
   <h2><i class="fa-solid fa-snowflake"></i> REFRIGERATEUR 1/5</h2>
   <h1>Quel type de frigo possédez-vous ?</h1>
-  <div class="fridge-form"  >
+  <div class="fridge-form"  data-enroll-target='fridge'>
     <%= form.input :fridge, required: true, label: false, as: :radio_buttons,
                                     collection: ["TRIMIXTE", "A COMPRESSION"],
                                     collection_wrapper_tag: 'div',
