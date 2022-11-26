@@ -8,6 +8,8 @@
 }
 @media screen and (max-width: 800px) {
   .bottom-navbar {
+    position: sticky;
+    bottom: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
