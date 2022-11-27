@@ -27,7 +27,11 @@
   <div class="features-box2">
     <h5> <i class="fa-solid fa-sun"></i> Type de chauffage</h5>
     <%= form.input :heater_type, as: :radio_buttons,
-                                    collection: ["ALDE", "Gasoil","Gaz"],
+                                    collection: [{type:"ALDE", value:10},
+                                                   {type: "Gasoil",value:30},
+                                                   {type:"Gaz", value:45}],
+                                    value_method: lambda { |heater| heater[:value]},
+                                    label_method: lambda { |heater| heater[:type]},
                                     collection_wrapper_tag: 'div',
                                     collection_wrapper_class: 'wrapper',
                                     item_wrapper_class: 'domain-item',
@@ -41,10 +45,11 @@
   <div class="grey-line"></div>
   <div class="features-box3" data-other-features-target='new'>
     <%= form.input :other_features,  as: :check_boxes,
+                                    # the value for additionnal features in Ah/Day
                                     collection: [{name:'Convertisseur',value:100},
-                                    {name:'Machine à café',value:100},
+                                    {name:'Machine à café',value:0.8},
                                     {name:'Respirateur',value:100},
-                                    {name:'Sèche-cheveux',value:100},
+                                    {name:'Sèche-cheveux',value:0.6},
                                     {name:'Robot Cuisine',value:100},
                                     {name:'Micro-onde',value:100}],
                                     value_method: lambda { |feature| "#{feature[:name]}=>#{feature[:value]}"},
@@ -83,7 +88,7 @@
       <i class="fa-solid fa-list-check"></i>
     </div>
   </div>
-  <div class="ypo-btn mt-3 mb-2" data-action='click->enroll#finishForm'>
-    <%= "<< CONNAITRE MA CONSOMMATION >>" %>
+  <div class="ypo-btn mt-3 mb-2 center-element" data-action='click->enroll#finishForm'>
+    <<&nbspCONNAITRE MA CONSOMMATION&nbsp>>
   </div>
 </div>
