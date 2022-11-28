@@ -57,7 +57,9 @@ export default class extends Controller {
       this.formBoxTargets[index + 1].classList.remove('d-none')
       window.scrollTo({ top: 0 })
     })
-    let isValid = this.validateForm(this.formTarget);
+
+
+    let isValid = this.validateForm(this.formTarget); //Homemade form validation see @EOF
     // form validation if true then display next
     if (isValid) {
       displayNext(event)
@@ -65,8 +67,8 @@ export default class extends Controller {
     } else {
       // else sweert alert with you muste fill all te mandatory fields
       Swal.fire({
-        title: "Pour continuer, Vous devez choisir au minimun :",
-        text: 'Un type de frigo, de batterie, de chauffage et si vous possédez des panneaux solaires',
+        title: "Pour continuer, vous devez choisir au minimun :",
+        text: 'Un type de frigo, de batterie, de chauffage et si vous possédez ou non des panneaux solaires',
         icon: 'error',
       })
 
