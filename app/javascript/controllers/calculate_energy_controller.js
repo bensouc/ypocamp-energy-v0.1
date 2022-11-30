@@ -49,7 +49,7 @@ export default class extends Controller {
 
     // Calculate phoneusage
     const phonesUsage = Math.round(data[11] * 0.1 * 10) / 10 //3.6W en charge 220V *6h=> 0.1Ah/D
-    const computersUsage = Math.round(data[12] * 6.3 * 10) / 10   // 75W computer tablette => 6.3Ah *
+    const computersUsage = Math.round(data[12] * ((75 / 220) * 6) * 10) / 10   // 75W computer tablette pour 6h
     const bikesUsage = Math.round(data[13] * ((504 / 220) * 6) * 10) / 10 // 504Wh pour 6h
     console.log( phonesUsage + computersUsage + bikesUsage)
 

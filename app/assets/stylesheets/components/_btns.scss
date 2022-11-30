@@ -1,7 +1,7 @@
 .ypo-btn {
-  width: fit-content ;
+  width: fit-content;
   max-width: 90vw !important;
-  white-space: normal ;
+  white-space: normal;
   height: fit-content;
   background-color: $primaryBlue !important;
   padding: 17px 20px !important;
@@ -20,6 +20,10 @@
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+}
+.ypo-btn:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
 }
 
 .add-btn {
@@ -44,11 +48,18 @@
     margin-right: 15px;
   }
 }
+.add-btn:hover{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
 
 .btn-validate {
   height: 2rem;
 }
-
+.btn-validate{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
 
 .next-btn {
   background-image: url(next.svg);
@@ -64,4 +75,8 @@
   background-size: cover;
   height: 30px;
   width: 18px;
+}
+.info-btn:hover{
+  transform: scale(1.1);
+  transition: 0.4s;
 }
