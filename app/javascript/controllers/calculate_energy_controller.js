@@ -20,7 +20,7 @@ export default class extends Controller {
     for (const [key, value] of new FormData(this.formTarget)) {
       data.push(value)
     }
-    console.log(data)
+    // console.log(data)
     // define basic values obje[nb,AJ]
     const capaBaseBattery = 100 //base Ah/Day
     const battery = { 'Plomb': 0.6, 'AGM': 0.7, 'Gel': 0.85, 'Lithium': 0.99 }

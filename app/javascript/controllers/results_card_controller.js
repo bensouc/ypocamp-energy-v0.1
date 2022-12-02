@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets =  ['summerbtn','winterbtn','summercard','wintercard' ]
 
   connect() {
-    console.log ("results controller connected")
+    // console.log ("results controller connected")
   }
 
   displaySummerCard(){
