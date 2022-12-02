@@ -87,7 +87,8 @@ export default class extends Controller {
     const index = TAB.indexOf(id)
 
     // all fridgenavtargets classList remove inactive et add inactive
-    console.log(this.fridgenavTargets)
+    // console.log(this.fridgenavTargets)
+    
     // display the right formbox
     this.formBoxTargets[index].classList.add('d-none')
     this.formBoxTargets[index - 1].classList.remove('d-none')

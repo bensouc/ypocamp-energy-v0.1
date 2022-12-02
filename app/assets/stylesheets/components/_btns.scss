@@ -3,7 +3,7 @@
   max-width: 90vw !important;
   white-space: normal;
   height: fit-content;
-  background-color: $primaryBlue !important;
+  background-color: $primaryBlue;
   padding: 17px 20px !important;
   display: inline-block;
   color: white !important;
@@ -15,7 +15,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: solid $primaryBlue !important;
+  border: solid $primaryBlue;
   border-radius: 15px !important;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
@@ -79,4 +79,8 @@
 .info-btn:hover{
   transform: scale(1.1);
   transition: 0.4s;
+}
+.btn-green{
+  background-color: $primaryGreen !important;
+  border-color: $primaryGreen !important;
 }
