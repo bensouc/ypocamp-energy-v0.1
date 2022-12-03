@@ -19,12 +19,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addFeatureModalLabel"></h1>
+        <h1 class="modal-title fs-5 text-white" id="addFeatureModalLabel"> Spécifications de votre Appareil</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action='click->calculate-energy#changeInForm'></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for :new_feat do |feat| %>
-          <div class="mail_email">
+          <div class="add-feature-namebox">
             <%= feat.input :name, as: :string, required: true,label:false,
                                 input_html:{value:"Nom de l'appareil*",
                                   data:{other_features_target:'name',

@@ -20,14 +20,6 @@ form {
   }
 }
 
-.mail_email {
-  width: 30ch;
-  // margin: 0 auto;
-  .form-control {
-    background-color: $backGrey;
-  }
-}
-
 // CSS 4 DIVS
 
 @media screen and (min-width: 800px) {
@@ -48,14 +40,33 @@ form {
     min-height: 500px;
     padding: 10px 15px 10px 25px;
   }
+  .feature-card {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    height: 80px;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: fit-content;
+    i {
+      margin-right: 10px;
+    }
+  }
+  .add-feature-namebox {
+    width: 30ch;
+    margin: 0 auto;
+    .form-control {
+      background-color: $backGrey;
+    }
+  }
 }
 @media screen and (max-width: 800px) {
   .form-box {
-    height: calc(100vh - 106px);
+    height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
-    // min-height: 500px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 0 15px 0px 20px;
   }
   .form-box1 {
@@ -67,6 +78,28 @@ form {
     justify-content: space-evenly;
     align-items: center;
     line-height: 200%;
+  }
+  .feature-card {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    height: 80px;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: 90%;
+    i {
+      margin-right: 10px;
+    }
+  }
+  .add-feature-namebox {
+    width: 30ch;
+    
+    .form-control {
+      background-color: $backGrey;
+    }
   }
 }
 
@@ -121,20 +154,6 @@ form {
 .features-box2 {
   h5 {
     margin-bottom: 2rem;
-  }
-}
-
-.feature-card {
-  display: flex;
-  align-items: baseline;
-  gap: 5px;
-  height: 80px;
-  padding: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: fit-content;
-  i {
-    margin-right: 10px;
   }
 }
 
