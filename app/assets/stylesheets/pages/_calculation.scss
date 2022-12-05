@@ -58,6 +58,7 @@
     .left-season-card {
       font-size: 3rem;
       margin: 0 0 0 19px;
+      width:60px;
     }
     .middle-season-card {
       width: 305px;
@@ -85,7 +86,8 @@
 }
 @media screen and (max-width: 800px) {
   .calculation {
-    margin-top: 90px;
+   margin-top: 18px;
+    height: auto !important;
   }
   .results-card {
     margin-bottom: 10px;

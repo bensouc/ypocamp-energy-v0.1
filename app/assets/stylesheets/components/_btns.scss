@@ -76,6 +76,16 @@
   height: 30px;
   width: 18px;
 }
+
+
+
+.nav-btn{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 .info-btn:hover{
   transform: scale(1.1);
   transition: 0.4s;
@@ -83,4 +93,19 @@
 .btn-green{
   background-color: $primaryGreen !important;
   border-color: $primaryGreen !important;
+}
+
+@media screen and (max-width: 800px) {
+.back-to-form{
+      position: absolute !important;
+    top: 162px !important;
+    left: 1px !important;
+}
+}
+@media screen and (min-width: 800px) {
+.back-to-form{
+      position: absolute !important;
+    top: 162px !important;
+    left: 40px !important;
+}
 }
