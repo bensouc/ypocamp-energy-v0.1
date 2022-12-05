@@ -74,7 +74,7 @@ export default class extends Controller {
       + phonesUsage + computersUsage + bikesUsage
     )
     const usageSummerPercPerDay = Math.round(((usageSummerPerday / (specsBattery[1] + (solarCharge * summerChargeDuration))) * 100)) //usage without heater /by battery + solarcharge
-    const automSummerDays = Math.round(specsBattery[1] / usageSummerPercPerDay * 10) / 10
+    const automSummerDays = Math.round((specsBattery[1] + (solarCharge * summerChargeDuration)) / usageSummerPercPerDay * 10) / 10
     const readableSummerUsagePerday = Math.round(usageSummerPerday * 100) / 100
     // update result display and form value summer usage per day in % of battery capacity
     this.percPerDaySummerTarget.innerHTML = `<bold>${usageSummerPercPerDay}%</bold>`
@@ -99,7 +99,7 @@ export default class extends Controller {
       + phonesUsage + computersUsage + bikesUsage
     )
     const usageWinterPercPerDay = Math.round((usageWinterPerday / (specsBattery[1] + (solarCharge * winterChargeDuration))) * 100) //usage without heater /by battery + solarcharge
-    const automWinterDays = Math.round(specsBattery[1] / usageWinterPercPerDay * 10) / 10
+    const automWinterDays = Math.round((specsBattery[1] + (solarCharge * winterChargeDuration)) / usageWinterPercPerDay * 10) / 10
     const readableWinterUsagePerday = Math.round(usageWinterPerday * 100) / 100
 
     this.percPerDayWinterTarget.innerHTML = `<bold>${usageWinterPercPerDay}%</bold>`
