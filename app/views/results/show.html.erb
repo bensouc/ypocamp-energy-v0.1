@@ -1,6 +1,103 @@
-<div class="container">
-<h1>info du prospect</h1>
-  <% @prospect.each do |key, value| %>
-    <p><%= "#{key} : #{value}"%></p>
-  <% end %>
+<div class="form-box calculation" id='results' data-enroll-target='formBox'>
+  <div class="nav-btn back-to-form">
+    <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+  </div>
+  <div class="results-card" data-controller="results-card" >
+    <div class="season-selection">
+      <div class="summer season-btn" data-results-card-target='summerbtn' data-action='click->results-card#displaySummerCard'><i class="fa-solid fa-sun"></i>MA CONSOMMATION L'ETE</div>
+      <div class="winter season-btn inactive" data-results-card-target='winterbtn'data-action='click->results-card#displayWinterCard'><i class="fa-solid fa-snowflake"></i>MA CONSOMMATION L'HIVER</div>
+    </div>
+    <div class="" data-results-card-target='summercard' data-controller="show-infos">
+      <div class="season-card summer" >
+        <div class="left-season-card">
+          <i class="fa-solid fa-car-battery"></i>
+        </div>
+        <div class="middle-season-card">
+          <p >Vous consommez</p>
+          <%= @prospect['perc_by_day'] %> %
+          <%# <span data-calculate-energy-target="percPerDaySummer" ></span> %>
+          <span class='font-weight-bold'>de votre batterie en 24h</span>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_percentage_btn' %>
+        </div>
+      </div>
+      <div class="season-card summer">
+        <div class="left-season-card">
+          <i class="fa-solid fa-van-shuttle"></i>
+        </div>
+        <div class="middle-season-card">
+          <p>Vous pouvez voyager pendant environ</p>
+          <%= @prospect['autonom_days'] %>
+          <%# <span data-calculate-energy-target="autonomDaysSummer"></span> %>
+          <span >jours en toute autonomie</span>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_autonomy_btn'%>
+        </div>
+      </div>
+      <div class="season-card summer">
+        <div class="left-season-card">
+          <i class="fa-solid fa-bolt-lightning"></i>
+        </div>
+        <div class="middle-season-card">
+          <p>Vous consommez en moyenne</p>
+          <%= @prospect['ah_per_day'] %>
+          <bold>AH par jour</bold>
+          <%# <span data-calculate-energy-target="ahPerDaySummer"></span> %>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_average_btn'%>
+        </div>
+      </div>
+    </div>
+    <div class="d-none"data-results-card-target='wintercard' data-controller="show-infos">
+      <div class="season-card winter">
+        <div class="left-season-card">
+          <i class="fa-solid fa-car-battery"></i>
+        </div>
+        <div class="middle-season-card">
+          <p >Vous consommez</p>
+          <%= @prospect['winter_ah_per_day'] %>%
+          <%# <span data-calculate-energy-target="percPerDayWinter" ></span> %>
+          <span class='font-weight-bold'>de votre batterie en 24h</span>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_percentage_btn' %>
+        </div>
+      </div>
+      <div class="season-card winter">
+        <div class="left-season-card">
+          <i class="fa-solid fa-van-shuttle"></i>
+        </div>
+        <div class="middle-season-card">
+          <p>Vous pouvez voyager pendant environ</p>
+          <%= @prospect['winter_autonom_days'] %>
+          <%# <span data-calculate-energy-target="autonomDaysWinter"></span> %>
+          <span >jours en toute autonomie</span>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_autonomy_btn'%>
+        </div>
+      </div>
+      <div class="season-card winter">
+        <div class="left-season-card">
+          <i class="fa-solid fa-bolt-lightning"></i>
+        </div>
+        <div class="middle-season-card">
+          <p>Vous consommez en moyenne</p>
+          <%= @prospect['winter_autonom_days'] %>
+          <bold>AH par jour</bold>
+          <%# <span data-calculate-energy-target="ahPerDayWinter"></span> %>
+        </div>
+        <div class="right-season-card">
+          <%= render 'info_average_btn'%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="final-cta">
+    <%= link_to "AMELIORER SON AUTONOMIE", 'https://blog.ypocamp.fr/' ,class: 'ypo-btn mb-2', data: { confirm: "Etes vous sur?"},target: :_blank %>
+    <%= link_to "CONTACTER UN CONSEILLER", 'https://blog.ypocamp.fr/' ,class: 'ypo-btn mb-2 btn-green', data: { confirm: "Etes vous sur?"} %>
+  </div>
 </div>
