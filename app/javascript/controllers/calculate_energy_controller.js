@@ -16,15 +16,18 @@ export default class extends Controller {
   }
   changeInForm() {
     // console.log("Change in form")
-    var data = []
+    var dataFeatures = []
     for (const [key, value] of new FormData(this.formTarget)) {
-      data.push(value)
+      dataFeatures.push(value)
     }
+    const data = Object.fromEntries(new FormData(this.formTarget).entries())
+    console.log('porspect')
+
     // console.log(data)
     // define basic values obje[nb,AJ]
     const capaBaseBattery = 100 //base Ah/Day
     const battery = { 'Plomb': 0.6, 'AGM': 0.7, 'Gel': 0.85, 'Lithium': 0.99 }
-    const specsBattery = [12, battery[data[9]] * capaBaseBattery] //capa battery is battery 100AH/j * puissance de charge  battery[data[9]
+    const specsBattery = [12, battery[data['prospect[battery]']] * capaBaseBattery] //capa battery is battery 100AH/j * puissance de charge  battery[data[9]
     // console.log(`battery is  ${data[9]} Type and its capa is ${battery[data[9]]} *100 Ah/D`)
     const waterPomp = [1, 3] // 1 unit / 3Ah/j
     const led = [1, 7] // 1 unit / 7Ah/j
@@ -34,37 +37,37 @@ export default class extends Controller {
     var heaterUsage = 0
 
     // calculate fridge usage
-    if (data[5] == "TRIMIXTE") {
+    if (data['prospect[fridge]'] == "TRIMIXTE") {
       fridge = [1, 5]
-    } else if (data[5] == "A COMPRESSION") {
+    } else if (data['prospect[fridge]'] == "A COMPRESSION") {
       fridge = [1, 44]
     }
     // console.log(`fridge is ${data[5]} and a ${fridge[1]} Ah/D`)
 
     //Solar Pannel calculation
-    const solarCharge = data[7] / specsBattery[0] * 0.4
+    const solarCharge = data['prospect[solar]'] / specsBattery[0] * 0.4
     const summerChargeDuration = 6
     const winterChargeDuration = 4
-    // console.log(`solair is ${data[7]} et sa charge par heure est ${solarCharge}`)
+    // console.log(`solair is ${data['prospect[solar]']} et sa charge par heure est ${solarCharge}`)
 
     // Calculate phoneusage
-    const phonesUsage = Math.round(data[11] * 0.1 * 10) / 10 //3.6W en charge 220V *6h=> 0.1Ah/D
-    const computersUsage = Math.round(data[12] * ((75 / 220) * 6) * 10) / 10   // 75W computer tablette pour 6h
-    const bikesUsage = Math.round(data[13] * ((504 / 220) * 6) * 10) / 10 // 504Wh pour 6h
-    console.log( phonesUsage + computersUsage + bikesUsage)
+    const phonesUsage = Math.round(data['prospect[phone]'] * 0.1 * 10) / 10 //3.6W en charge 220V *6h=> 0.1Ah/D
+    const computersUsage = Math.round(data['prospect[computer]'] * ((75 / 220) * 6) * 10) / 10   // 75W computer tablette pour 6h
+    const bikesUsage = Math.round(data['prospect[bike]'] * ((504 / 220) * 6) * 10) / 10 // 504Wh pour 6h
+    // console.log( phonesUsage + computersUsage + bikesUsage)
 
     //calculate heater usage in Ah/day
     // const heaterSpecs = {'ALDE': 10, 'Gasoil': 30, 'Gaz': 45 }
-    if (data[15] != undefined && data[15] != '') {
-      heaterUsage = Number(data[15])  // 6hrs of heater in average
+    if (data['prospect[heater_type]'] != undefined && data['prospect[heater_type]'] != '') {
+      heaterUsage = Number(data['prospect[heater_type]'])  // 6hrs of heater in average
     }
     // console.log(`heaterusage is ${data[15]} per Hour=> ${heaterUsage}Ah/d`)
 
     //calculate features & additionnal features usage in Ah/day
-    const nbFeature = data.length
+    const nbFeature = dataFeatures.length
     var featuresUsage = 0
     for (let i = 17; i < (nbFeature); i++) {
-      featuresUsage += (Number(data[i].split('=>')[1])) //  value in Ah/Day( define in from collection :XXX Watt * nb hrs a day / by battery voltage)
+      featuresUsage += (Number(dataFeatures[i].split('=>')[1])) //  value in Ah/Day( define in from collection :XXX Watt * nb hrs a day / by battery voltage)
     }
     // console.log(`featuresUsage is ${featuresUsage} perday`)
 
