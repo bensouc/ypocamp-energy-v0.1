@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="calculate-energy"
 export default class extends Controller {
-  static targets = ['form', 'features', 'percPerDaySummer', 'autonomDaysSummer', 'ahPerDaySummer', 'percPerDayWinter', 'autonomDaysWinter', 'ahPerDayWinter', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay']
+  static targets = ['form', 'features', 'percPerDaySummer', 'autonomDaysSummer', 'ahPerDaySummer', 'percPerDayWinter', 'autonomDaysWinter', 'ahPerDayWinter', 'fridge', 'formPercByDay', 'formAutonomDays', 'formAhPerDay', 'winterformPercByDay', 'winterformAutonomDays', 'winterformAhPerDay']
 
   connect() {
     // console.log("update controller connected")
@@ -21,7 +21,7 @@ export default class extends Controller {
       dataFeatures.push(value)
     }
     const data = Object.fromEntries(new FormData(this.formTarget).entries())
-    console.log('porspect')
+    console.log(dataFeatures)
 
     // console.log(data)
     // define basic values obje[nb,AJ]
@@ -66,7 +66,7 @@ export default class extends Controller {
     //calculate features & additionnal features usage in Ah/day
     const nbFeature = dataFeatures.length
     var featuresUsage = 0
-    for (let i = 17; i < (nbFeature); i++) {
+    for (let i = 21; i < (nbFeature); i++) {
       featuresUsage += (Number(dataFeatures[i].split('=>')[1])) //  value in Ah/Day( define in from collection :XXX Watt * nb hrs a day / by battery voltage)
     }
     // console.log(`featuresUsage is ${featuresUsage} perday`)
@@ -106,16 +106,17 @@ export default class extends Controller {
     const readableWinterUsagePerday = Math.round(usageWinterPerday * 100) / 100
 
     this.percPerDayWinterTarget.innerHTML = `<bold>${usageWinterPercPerDay}%</bold>`
-    // this.formPercByDayTarget.value = `${usagePercPerDay}`
+    this.winterformPercByDayTarget.value = `${usageWinterPercPerDay}`
+    
     // console.log(`usageWinterPercPerDa is ${usageWinterPercPerDay} % `)
 
     // update result display and form value days of autonomy
     this.autonomDaysWinterTarget.innerHTML = `<bold>${automWinterDays} jours</bold>`
-    // this.formAutonomDaysTarget.value = `${automWinterDays}`
+    this.winterformAutonomDaysTarget.value = `${automWinterDays}`
 
     // update result display and form value A per Day usage
     this.ahPerDayWinterTarget.innerHTML = `<bold>${readableWinterUsagePerday} AH par jour</bold>`
-    // this.formAhPerDayTarget.value = `${readableWinterUsagePerday}`
+    this.winterformAhPerDayTarget.value = `${readableWinterUsagePerday}`
 
   }
 

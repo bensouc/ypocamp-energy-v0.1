@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 import Swal from "sweetalert2"
 import process from "process"
 import hubspot from "@hubspot/api-client"
-import * as sweetalert2 from "sweetalert2"
+
+// import * as sweetalert2 from "sweetalert2"
 
 // Connects to data-controller="enroll"
 export default class extends Controller {
@@ -64,7 +65,7 @@ export default class extends Controller {
     let isValid = this.validateForm(this.formTarget); //Homemade form validation see @EOF
     // form validation if true then display next
     if (isValid) {
-      this.sendContact()
+      // this.sendContact()
       displayNext(event)
       // displayNext(event)
     } else {
@@ -174,59 +175,5 @@ export default class extends Controller {
     return isValid
   }
 
-  async sendContact() {
-    const dataContact = Object.fromEntries(new FormData(this.formTarget).entries())
-    var dataTemp = []
-    for (const [key, value] of new FormData(this.formTarget)) {
-      dataTemp.push(value)
-    }
-    const dataFeatures = dataTemp.slice(17)
-    // API POST RESUQET
-    const url = 'https://api.hubapi.com/crm/v3/objects/contacts'
-    const API_BEARER_TOKEN = process.env.API_BEARER_TOKEN
-    const body = `{
-                    "properties": {
-                                    "email": "${dataContact['prospect[email]']}",
-                                    "firstname": "test prénom",
-                                    "lastname": "test"
-                                  }
-                  }`
-
-    fetch(url, {
-      method: 'POST',
-      mode: 'same-origin',
-      headers: {
-        'authorization': API_BEARER_TOKEN,
-        'Content-Type': 'application/json'
-      },
-      // body: '{\n  "properties": {\n    "email": "bcooper@biglytics.net",\n    "firstname": "Bryan"\n  }\n}',
-      body: JSON.stringify(body)
-    })
-    .then((data) => console.log(data))
-
-    // // const hubspot = require('@hubspot/api-client');
-
-    // const hubspotClient = new hubspot.Client({ "accessToken": API_BEARER_TOKEN });
-
-    // const properties = {
-    //   "email": `${dataContact['prospect[email]']}`,
-    //   "firstname": "test prénom",
-    //   "lastname": "test"
-    // };
-    // const SimplePublicObjectInput = { properties };
-
-    // try {
-    //   const apiResponse = await hubspotClient.crm.contacts.basicApi.create(SimplePublicObjectInput);
-    //   console.log(JSON.stringify(apiResponse.body, null, 2));
-    // }
-    // catch (e) {
-    //   }
-    // //   e.message === 'HTTP request failed'
-    // //     ? console.error(JSON.stringify(e.response, null, 2))
-    // //     : console.error(e)
-    // // }
-
-
-
-  }
+  
 }
