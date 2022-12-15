@@ -1,6 +1,8 @@
 <div class="form-box calculation" id='results' data-enroll-target='formBox'>
   <div class="nav-btn back-to-form">
-    <div class='previous-btn mt-3' data-action='click->enroll#displayBack'></div>
+    <%= link_to :back do%>
+      <div class='previous-btn mt-3' ></div>
+    <% end %>
   </div>
   <div class="results-card" data-controller="results-card" >
     <div class="season-selection">
@@ -86,7 +88,7 @@
         </div>
         <div class="middle-season-card">
           <p>Vous consommez en moyenne</p>
-          <%= @prospect['winter_autonom_days'] %>
+          <%= @prospect['winter_ah_per_day'] %>
           <bold>AH par jour</bold>
           <%# <span data-calculate-energy-target="ahPerDayWinter"></span> %>
         </div>

@@ -24,6 +24,8 @@
 .ypo-btn:hover {
   transform: scale(1.1);
   transition: 0.4s;
+  background-color: $primaryBlue !important;
+  color: white !important;
 }
 
 .add-btn {
@@ -91,6 +93,10 @@
   transition: 0.4s;
 }
 .btn-green{
+  background-color: $primaryGreen !important;
+  border-color: $primaryGreen !important;
+}
+.btn-green:hover{
   background-color: $primaryGreen !important;
   border-color: $primaryGreen !important;
 }

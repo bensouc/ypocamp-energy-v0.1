@@ -21,7 +21,7 @@ export default class extends Controller {
       dataFeatures.push(value)
     }
     const data = Object.fromEntries(new FormData(this.formTarget).entries())
-    console.log(dataFeatures)
+    // console.log(dataFeatures)
 
     // console.log(data)
     // define basic values obje[nb,AJ]
@@ -80,17 +80,17 @@ export default class extends Controller {
     const automSummerDays = Math.round((specsBattery[1] + (solarCharge * summerChargeDuration)) / usageSummerPercPerDay * 10) / 10
     const readableSummerUsagePerday = Math.round(usageSummerPerday * 100) / 100
     // update result display and form value summer usage per day in % of battery capacity
-    this.percPerDaySummerTarget.innerHTML = `<bold>${usageSummerPercPerDay}%</bold>`
+    // this.percPerDaySummerTarget.innerHTML = `<bold>${usageSummerPercPerDay}%</bold>`
     this.formPercByDayTarget.value = `${usageSummerPercPerDay}`
     // console.log(`usageSummerPercPerDay is ${usageSummerPercPerDay} % of battery capacity`)
 
     // update result display and form value days of autonomy
-    this.autonomDaysSummerTarget.innerHTML = `<bold>${automSummerDays} jours</bold>`
+    // this.autonomDaysSummerTarget.innerHTML = `<bold>${automSummerDays} jours</bold>`
     this.formAutonomDaysTarget.value = `${automSummerDays}`
     // console.log(`automSummerDays is ${automSummerDays} Days of autonomy`)
 
     // update result display and form value A per Day usage
-    this.ahPerDaySummerTarget.innerHTML = `<bold>${readableSummerUsagePerday} AH par jour</bold>`
+    // this.ahPerDaySummerTarget.innerHTML = `<bold>${readableSummerUsagePerday} AH par jour</bold>`
     this.formAhPerDayTarget.value = `${readableSummerUsagePerday}`
     // console.log(`readableSummerUsagePerday is ${readableSummerUsagePerday} Ah/Day, solar charging included`)
 
@@ -105,17 +105,17 @@ export default class extends Controller {
     const automWinterDays = Math.round((specsBattery[1] + (solarCharge * winterChargeDuration)) / usageWinterPercPerDay * 10) / 10
     const readableWinterUsagePerday = Math.round(usageWinterPerday * 100) / 100
 
-    this.percPerDayWinterTarget.innerHTML = `<bold>${usageWinterPercPerDay}%</bold>`
+    // this.percPerDayWinterTarget.innerHTML = `<bold>${usageWinterPercPerDay}%</bold>`
     this.winterformPercByDayTarget.value = `${usageWinterPercPerDay}`
-    
+
     // console.log(`usageWinterPercPerDa is ${usageWinterPercPerDay} % `)
 
     // update result display and form value days of autonomy
-    this.autonomDaysWinterTarget.innerHTML = `<bold>${automWinterDays} jours</bold>`
+    // this.autonomDaysWinterTarget.innerHTML = `<bold>${automWinterDays} jours</bold>`
     this.winterformAutonomDaysTarget.value = `${automWinterDays}`
 
     // update result display and form value A per Day usage
-    this.ahPerDayWinterTarget.innerHTML = `<bold>${readableWinterUsagePerday} AH par jour</bold>`
+    // this.ahPerDayWinterTarget.innerHTML = `<bold>${readableWinterUsagePerday} AH par jour</bold>`
     this.winterformAhPerDayTarget.value = `${readableWinterUsagePerday}`
 
   }

@@ -1,5 +1,5 @@
 <%= simple_form_for :prospect,url: calculate_path, method: 'get',
-                              html: {data:{calculate_energy_target: 'form',enroll_target:'form'}, id: 'calculate-energy' } do |form|%>
+                              html: {novalidate: true, data:{calculate_energy_target: 'form',enroll_target:'form',action: "submit->enroll#finishForm"}, id: 'calculate-energy' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
     <%= form.input :winter_perc_by_day, as: :integer,required: false,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'winterformPercByDay'}} %>
@@ -14,7 +14,7 @@
   <%= render 'battery_form', form: form %>
   <%= render 'km_form', form: form %>
   <%= render 'features_form', form: form %>
-  <%= render 'result_form', form: form  %>
+  <%# <%= render 'result_form', form: form  %>
 <% end %>
 <%# modal %>
 <!-- Modal ajout appareil -->
