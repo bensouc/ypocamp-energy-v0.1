@@ -16,7 +16,7 @@ export default class extends Controller {
           <input checked class=" form-check-input check_boxes required selector domain-selector-small" data-calculate-energy-target="features" type="checkbox" value="${this.nameTarget.value}=>${feature_daily_usage}" name="prospect[other_features][]" id="prospect_other_features_${this.nameTarget.value.replace(/ /g, "_")}">
           <label class=" d-flex justify-content-between  align-items-baseline form-check-label collection_check_boxes" for="prospect_other_features_${this.nameTarget.value.replace(/ /g, "_")}">
             <i class="fa-regular fa-user"></i>  ${this.nameTarget.value}
-            <div data-action="click->other-features#removeFeature"> <i class="fa-solid fa-trash"></i> </div>
+            <div data-action="click->other-features#removeFeature "> <i class="fa-solid fa-trash"></i> </div>
           </label>
         </div>`)
     this.nameTarget.value ="Nom de l'appareil *"

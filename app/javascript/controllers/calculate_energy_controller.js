@@ -45,31 +45,32 @@ export default class extends Controller {
     // console.log(`fridge is ${data[5]} and a ${fridge[1]} Ah/D`)
 
     //Solar Pannel calculation
-    const solarCharge = data['prospect[solar]'] / specsBattery[0] * 0.4
+    var solarCharge = 0
+    if (data['prospect[solar]'] != "AUCUN") {
+      solarCharge = data['prospect[solar]'] / specsBattery[0] * 0.4
+    }
     const summerChargeDuration = 6
     const winterChargeDuration = 4
-    // console.log(`solair is ${data['prospect[solar]']} et sa charge par heure est ${solarCharge}`)
 
     // Calculate phoneusage
     const phonesUsage = Math.round(data['prospect[phone]'] * 0.1 * 10) / 10 //3.6W en charge 220V *6h=> 0.1Ah/D
     const computersUsage = Math.round(data['prospect[computer]'] * ((75 / 220) * 6) * 10) / 10   // 75W computer tablette pour 6h
     const bikesUsage = Math.round(data['prospect[bike]'] * ((504 / 220) * 6) * 10) / 10 // 504Wh pour 6h
-    // console.log( phonesUsage + computersUsage + bikesUsage)
+
 
     //calculate heater usage in Ah/day
-    // const heaterSpecs = {'ALDE': 10, 'Gasoil': 30, 'Gaz': 45 }
+    const heaterSpecs = {'ALDE': 10, 'Gasoil': 30, 'Gaz': 45 }
     if (data['prospect[heater_type]'] != undefined && data['prospect[heater_type]'] != '') {
-      heaterUsage = Number(data['prospect[heater_type]'])  // 6hrs of heater in average
+      heaterUsage = Number(heaterSpecs[data['prospect[heater_type]']])  // 6hrs of heater in average
     }
-    // console.log(`heaterusage is ${data[15]} per Hour=> ${heaterUsage}Ah/d`)
 
     //calculate features & additionnal features usage in Ah/day
     const nbFeature = dataFeatures.length
     var featuresUsage = 0
-    for (let i = 21; i < (nbFeature); i++) {
-      featuresUsage += (Number(dataFeatures[i].split('=>')[1])) //  value in Ah/Day( define in from collection :XXX Watt * nb hrs a day / by battery voltage)
+    for (let i = 20; i < (nbFeature); i++) {
+      if (dataFeatures[i] != '')
+          {featuresUsage += (Number(dataFeatures[i].split('=>')[1]))} //  value in Ah/Day( define in from collection :XXX Watt * nb hrs a day / by battery voltage)
     }
-    // console.log(`featuresUsage is ${featuresUsage} perday`)
 
     // SUMMER CALCULATIONS
     const usageSummerPerday = (featuresUsage + waterPomp[0] * waterPomp[1]
@@ -108,15 +109,17 @@ export default class extends Controller {
     // this.percPerDayWinterTarget.innerHTML = `<bold>${usageWinterPercPerDay}%</bold>`
     this.winterformPercByDayTarget.value = `${usageWinterPercPerDay}`
 
-    // console.log(`usageWinterPercPerDa is ${usageWinterPercPerDay} % `)
+    console.log(`usageWinterPercPerDay is ${usageWinterPercPerDay} % `)
 
     // update result display and form value days of autonomy
     // this.autonomDaysWinterTarget.innerHTML = `<bold>${automWinterDays} jours</bold>`
     this.winterformAutonomDaysTarget.value = `${automWinterDays}`
+    console.log(`autonomWinterPDAY is ${automWinterDays} % `)
 
     // update result display and form value A per Day usage
     // this.ahPerDayWinterTarget.innerHTML = `<bold>${readableWinterUsagePerday} AH par jour</bold>`
     this.winterformAhPerDayTarget.value = `${readableWinterUsagePerday}`
+    console.log(`winterformAhPerDay is ${readableWinterUsagePerday} % `)
 
   }
 

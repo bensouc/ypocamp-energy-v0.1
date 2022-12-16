@@ -2,7 +2,7 @@
   <h2><i class="fa-solid fa-solar-panel"></i> PANNEAU SOLAIRE 2/5</h2>
   <h1>Avez vous un panneau solaire ?</h1>
   <%= form.input :solar,required: true,label: false, as: :radio_buttons,
-                                    collection: [{type:"AUCUN",value:0}, {type:"100W",value:100},{type:"130W",value:130},{type:"170W",value:170}],
+                                    collection: [{type:"AUCUN",value:"AUCUN"}, {type:"100W",value:100},{type:"130W",value:130},{type:"170W",value:170}],
                                     collection_wrapper_tag: 'div',
                                     value_method: lambda { |solar|solar[:value]},
                                     label_method: lambda { |solar|solar[:type]},
