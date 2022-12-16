@@ -1,17 +1,20 @@
 <%= simple_form_for :prospect,url: calculate_path, method: 'get',
-                              html: {data:{calculate_energy_target: 'form',enroll_target:'form'}, id: 'calculate-energy' } do |form|%>
+                              html: {novalidate: true, data:{calculate_energy_target: 'form',enroll_target:'form',action: "submit->enroll#finishForm"}, id: 'calculate-energy' } do |form|%>
   <div class="invisible">
     <%= form.input :email, as: :email, input_html:{class: 'd-none', value: @email} %>
-    <%= form.input :perc_by_day, as: :integer,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
-    <%= form.input :autonom_days, as: :decimal,  label: false, input_html:{value: "1.2", class: "invisible",data:{calculate_energy_target:'formAutonomDays'}} %>
-    <%= form.input :ah_per_day, as: :decimal,  label: false, input_html:{value: "56", class: "invisible",data:{calculate_energy_target:'formAhPerDay'}} %>
+    <%= form.input :winter_perc_by_day, as: :integer,required: false,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'winterformPercByDay'}} %>
+    <%= form.input :winter_autonom_days, as: :decimal,required: false,  label: false, input_html:{value: "1.2", class: "invisible",data:{calculate_energy_target:'winterformAutonomDays'}} %>
+    <%= form.input :winter_ah_per_day, as: :decimal,required: false,  label: false, input_html:{value: "56", class: "invisible",data:{calculate_energy_target:'winterformAhPerDay'}} %>
+    <%= form.input :perc_by_day, as: :integer,required: false,  label: false, input_html:{value: "84", class: "invisible", data:{calculate_energy_target:'formPercByDay'}} %>
+    <%= form.input :autonom_days, as: :decimal,required: false,  label: false, input_html:{value: "1.2", class: "invisible",data:{calculate_energy_target:'formAutonomDays'}} %>
+    <%= form.input :ah_per_day, as: :decimal,required: false,  label: false, input_html:{value: "56", class: "invisible",data:{calculate_energy_target:'formAhPerDay'}} %>
   </div>
   <%= render 'fridge_form', form: form %>
   <%= render 'solar_form', form: form %>
   <%= render 'battery_form', form: form %>
   <%= render 'km_form', form: form %>
   <%= render 'features_form', form: form %>
-  <%= render 'result_form', form: form  %>
+  <%# <%= render 'result_form', form: form  %>
 <% end %>
 <%# modal %>
 <!-- Modal ajout appareil -->
@@ -40,7 +43,8 @@
       </div>
       <div class="modal-footer" >
         <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" data-action='click->calculate-energy#changeInForm'>Fermer</button>
-        <button type="button" class="btn btn-success text-white " data-action='click->other-features#addFeatures' data-bs-dismiss="modal" data-action='click->calculate-energy#changeInForm'>Ajouter</button>
+        <button type="button" class="btn btn-success text-white " data-action='click->other-features#addFeatures click->calculate-energy#changeInForm
+' data-bs-dismiss="modal" data-action='click->calculate-energy#changeInForm'>Ajouter</button>
       </div>
     </div>
   </div>

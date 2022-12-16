@@ -10,7 +10,9 @@ gem "rails", "~> 7.0.4"
 gem 'bootstrap', '~> 5.2.2'
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form" #rails generate simple_form:install --bootstrap
-
+gem "dotenv-rails", groups: [:development, :test]
+gem "rack-cors"
+gem "hubspot-api-client", "~> 16.0", ">= 16.0.4"
 # END VROADSTUDIO SETUP
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
