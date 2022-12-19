@@ -35,9 +35,7 @@ class ResultsController < ApplicationController
 
       feature_name = feature.split('=>')[0] # Get feature name
       if features_spec[feature_name].nil? # if feature_name is nil <=> not in the features_spec Hash
-        other_features += "#{feature.split('=>')[0]}-
-                            #{(feature.split('=>')[1].to_f * 220)
-                              .fdiv(10.to_f.fdiv(60)).round / 10 * 10}Watts\n" # // W / 220V => Ah/D *10min (in average)
+        other_features += "#{feature.split('=>')[0]}-#{(feature.split('=>')[1].to_f * 220).fdiv(10.to_f.fdiv(60)).round / 10 * 10}Watts\n" # // W / 220V => Ah/D *10min (in average)
       else # Get the Watts from features_spec Hash
         other_features += "#{feature_name}-#{features_spec[feature_name]}Watts\n"
       end
