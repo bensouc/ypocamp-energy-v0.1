@@ -43,11 +43,11 @@ class ResultsController < ApplicationController
     properties = {
       "email": prospect[:email].to_s,
       "consommation_journaliere__ah_jr_": prospect[:ah_per_day].to_s,
-      "atonomie___ete__jrs_": prospect[:autonom_days].to_s,
+      "autonomie___ete__jrs_": prospect[:autonom_days].to_s,
       "consommation_journaliere__en_____ete": prospect[:perc_by_day].to_s,
       "consommation_journaliere__ah_jr____hiver": prospect[:winter_ah_per_day].to_s,
       "consommation_journaliere__en_____hiver": prospect[:winter_perc_by_day].to_s,
-      "atonomie___hiver__jrs_": prospect[:winter_autonom_days].to_s,
+      "autonomie___hiver__jrs_": prospect[:winter_autonom_days].to_s,
       "batterie": prospect[:battery].to_s,
       "distance_jounaliere": prospect[:kms].to_s,
       "panneau_solaire": prospect[:solar].to_s,

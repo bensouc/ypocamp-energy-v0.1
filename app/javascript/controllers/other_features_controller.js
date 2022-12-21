@@ -9,7 +9,7 @@ export default class extends Controller {
   addFeatures() {
 
     // aller chercher le wrapper
-    const feature_daily_usage = Math.round((this.wattTarget.value / 220) * (10 / 60) * 100) / 100 // W / 220V => Ah/D *10min (in average)
+    const feature_daily_usage = Math.round((this.wattTarget.value / 230) * (10 / 60) * 100) / 100 // W / 230V => Ah/D *10min (in average)
     // add in DOM the new feature
     this.lastTargets[5].parentElement.parentElement.insertAdjacentHTML('beforeend',
       `<div class="form-check ">

@@ -48,12 +48,12 @@
 >
     <%= form.input :other_features,  as: :check_boxes,
                                     # the value for additionnal features in Ah/Day
-                                    collection: [{name:'Convertisseur',value:12},
+                                    collection: [{name:'Convertisseur',value:26},
                                     {name:'Machine à café',value:0.8},
-                                    {name:'Respirateur',value:14},
-                                    {name:'Sèche-cheveux',value:0.6},
-                                    {name:'Robot Cuisine',value:2.3},# 1550W => 7Ah/D (220V), in average 20mins => 2.3
-                                    {name:'Micro-onde',value:0.6}], # 900W => 4AH/D (220V),in average 10mins => 0.6
+                                    {name:'Respirateur',value:12},
+                                    {name:'Sèche-cheveux',value:12.5},
+                                    {name:'Robot Cuisine',value:2.3},
+                                    {name:'Micro-onde',value:0.6}],
                                     value_method: lambda { |feature| "#{feature[:name]}=>#{feature[:value]}"},
                                     label_method: lambda { |feature| render 'pages/features/features_label', feature: feature[:name]},
                                     multiple: true,
@@ -91,7 +91,4 @@
     </div>
   </div>
   <%= form.button :submit, "CONNAITRE MA CONSOMMATION" ,class: 'ypo-btn mt-3 mb-2 center-element', data: { confirm: "Etes vous sur?"} %>
-  <%# <div class="ypo-btn mt-3 mb-2 center-element" data-action='click->enroll#finishForm'>
-    <<&nbspCONNAITRE MA CONSOMMATION&nbsp>>
-  </div> %>
 </div>
