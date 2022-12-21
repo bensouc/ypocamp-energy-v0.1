@@ -61,7 +61,6 @@
         <div class="middle-season-card">
           <p >Vous consommez</p>
           <%= @prospect['winter_perc_by_day'] %>%
-          <%# <span data-calculate-energy-target="percPerDayWinter" ></span> %>
           <span class='font-weight-bold'>de votre batterie en 24h</span>
         </div>
         <div class="right-season-card">
@@ -75,7 +74,6 @@
         <div class="middle-season-card">
           <p>Vous pouvez voyager pendant environ</p>
           <%= @prospect['winter_autonom_days'] %>
-          <%# <span data-calculate-energy-target="autonomDaysWinter"></span> %>
           <span >jours en toute autonomie</span>
         </div>
         <div class="right-season-card">
@@ -90,7 +88,6 @@
           <p>Vous consommez en moyenne</p>
           <%= @prospect['winter_ah_per_day'] %>
           <bold>AH par jour</bold>
-          <%# <span data-calculate-energy-target="ahPerDayWinter"></span> %>
         </div>
         <div class="right-season-card">
           <%= render 'info_average_btn'%>

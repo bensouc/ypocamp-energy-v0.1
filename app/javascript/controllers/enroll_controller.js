@@ -1,9 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import Swal from "sweetalert2"
-import process from "process"
-import hubspot from "@hubspot/api-client"
-
-// import * as sweetalert2 from "sweetalert2"
 
 // Connects to data-controller="enroll"
 export default class extends Controller {
@@ -40,27 +36,6 @@ export default class extends Controller {
   }
 
   finishForm(event) {
-    // dispaly next
-    // const displayNext = ((event) => {
-    //   const TAB = ["fridge", 'solar', 'battery', 'km', 'features', 'results']
-    //   var id = event.composedPath()[5].id
-    //   if (event.composedPath()[5].id == "fridge") {
-    //     id = 'fridge'
-    //   } else if (event.composedPath()[2].id == "km") {
-    //     id = 'km'
-    //   } else if (event.composedPath()[1].id == "features") {
-    //     id = 'features'
-    //   }
-    //   else {
-    //     id = event.composedPath()[4].id
-    //   }
-    //   // console.log(event.composedPath())
-    //   const index = TAB.indexOf(id)
-    //   this.formBoxTargets[index].classList.add('d-none')
-    //   this.formBoxTargets[index + 1].classList.remove('d-none')
-    //   window.scrollTo({ top: 0 })
-    // })
-    // console.log('check le truc')
 
     let isValid = this.validateForm(this.formTarget); //Homemade form validation see @EOF
 
