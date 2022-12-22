@@ -23,13 +23,13 @@ class ResultsController < ApplicationController
 
   def create_body(prospect)
     features_spec = { 'Convertisseur' => 440,
-                      'Machine à café' => 1000,
-                      'Respirateur' => 500,
-                      'Sèche-cheveux' => 1400,
-                      'Robot Cuisine' => 1550, # 1550W => 7Ah/D (220V), in average 20mins => 2.3
-                      'Micro-onde' => 900 }
-    other_features = ''
-    # Create propertie for user created features AND Basic features
+      'Machine à café' => 1000,
+      'Respirateur' => 500,
+      'Sèche-cheveux' => 1400,
+      'Robot Cuisine' => 1550, # 1550W => 7Ah/D (220V), in average 20mins => 2.3
+      'Micro-onde' => 900 }
+      other_features = ''
+      # Create propertie for user created features AND Basic features
     prospect[:other_features].map do |feature|
       next if feature.nil? || feature.empty?
 
@@ -42,14 +42,14 @@ class ResultsController < ApplicationController
     end
     properties = {
       "email": prospect[:email].to_s,
-      "consommation_journaliere__ah_jr_": prospect[:ah_per_day].to_s,
+      "consommation_journaliere__ah_jr____ete": prospect[:ah_per_day].to_s,
       "autonomie___ete__jrs_": prospect[:autonom_days].to_s,
       "consommation_journaliere__en_____ete": prospect[:perc_by_day].to_s,
       "consommation_journaliere__ah_jr____hiver": prospect[:winter_ah_per_day].to_s,
       "consommation_journaliere__en_____hiver": prospect[:winter_perc_by_day].to_s,
       "autonomie___hiver__jrs_": prospect[:winter_autonom_days].to_s,
       "batterie": prospect[:battery].to_s,
-      "distance_jounaliere": prospect[:kms].to_s,
+      "distance_journaliere": prospect[:kms].to_s,
       "panneau_solaire": prospect[:solar].to_s,
       "type_de_chauffage": prospect[:heater_type].to_s,
       "refrigerateur": prospect[:fridge].to_s,
@@ -64,7 +64,8 @@ class ResultsController < ApplicationController
 
   def send_prospect(prospect, body)
     api_client = Hubspot::Client.new(access_token: ENV['API_BEARER_TOKEN'])
-    contact = api_client.crm.contacts.basic_api.create(body: body, &:code)
+    contact = api_client.crm.contacts.basic_api.create(body: body, &:message)
+    raise
     return unless contact == 409
 
     api_client = Hubspot::Client.new(access_token: ENV['API_BEARER_TOKEN'])
