@@ -64,7 +64,7 @@ class ResultsController < ApplicationController
 
   def send_prospect(prospect, body)
     api_client = Hubspot::Client.new(access_token: ENV['API_BEARER_TOKEN'])
-    contact = api_client.crm.contacts.basic_api.create(body: body, &:message)
+    contact = api_client.crm.contacts.basic_api.create(body: body, &:code)
     return unless contact == 409
 
     api_client = Hubspot::Client.new(access_token: ENV['API_BEARER_TOKEN'])
