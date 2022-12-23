@@ -1,0 +1,14 @@
+.contact-header{
+  padding: 0 10px;
+  h1{
+    font-family: $body-font;
+    color: $primaryBlue;
+    font-weight: 500;
+    border-bottom: 2px solid $primaryBlue;
+    padding-bottom: 10px;
+    margin-right: 8px;
+  }
+}
+.contact-form{
+  padding: 0 10px;
+}

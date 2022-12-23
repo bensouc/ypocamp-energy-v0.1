@@ -97,6 +97,8 @@
   </div>
   <div class="final-cta">
     <%= link_to "AMELIORER SON AUTONOMIE", 'https://blog.ypocamp.fr/' ,class: 'ypo-btn mb-2', data: { confirm: "Etes vous sur?"},target: :_blank %>
-    <%= link_to "CONTACTER UN CONSEILLER", 'https://blog.ypocamp.fr/' ,class: 'ypo-btn mb-2 btn-green', data: { confirm: "Etes vous sur?"} %>
+    <%= link_to "CONTACTER UN CONSEILLER", contact_path(params: { email: @prospect['email'] }),
+      class: 'ypo-btn mb-2 btn-green', data: { confirm: "Etes vous sur?"}
+    %>
   </div>
 </div>
