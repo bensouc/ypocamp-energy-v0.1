@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @email = params.require(:email)
   end
 
+  def contact
+
+  end
+
   def mail
     @email = set_email
     redirect_to form_path(params: { email: @email })
