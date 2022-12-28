@@ -51,7 +51,8 @@ body {
   .logo {
     z-index: 1;
     padding: 15px 0;
-    width: 100%;
+    width: 100vw;
+    margin: 0 auto;
     background-color: white;
     position: fixed;
     top: 0;
@@ -83,7 +84,7 @@ body {
 @media screen and (max-width: 800px) {
   .left {
     margin-top: 90px;
-    // width: 100%;
+    width: 100vw;
     min-height: calc(100vh - 90px);
   }
 

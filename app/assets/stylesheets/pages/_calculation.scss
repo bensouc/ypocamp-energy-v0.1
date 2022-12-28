@@ -238,15 +238,3 @@
     }
   }
 }
-
-.final-cta {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-@media screen and (max-width: 800px) {
-  .final-cta {
-    justify-content: center;
-  }
-}
