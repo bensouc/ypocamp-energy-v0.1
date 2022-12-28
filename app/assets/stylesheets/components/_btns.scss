@@ -64,8 +64,9 @@
 }
 
 .ypo-cta-blue {
+  box-shadow: 2px 2px 5px 1px rgba(81,81,158,0.56);
   height: 2.5rem !important;
-  width: fit-content;
+  width: 245px;
   max-width: 90vw !important;
   white-space: normal;
   height: fit-content;
@@ -81,7 +82,7 @@
   vertical-align: middle;
   color: white !important;
   border: solid $primaryBlue;
-  border-radius: 8px !important;
+  border-radius: 5px !important;
   .circle-white {
     width: 20px;
     height: 20px;
@@ -112,8 +113,9 @@
   }
 }
 .ypo-cta-white {
+  box-shadow: 2px 2px 5px 1px rgba(81,81,158,0.56);
   height: 2.5rem !important;
-  width: fit-content;
+  width: 245px;
   max-width: 90vw !important;
   white-space: normal;
   height: fit-content;
@@ -127,8 +129,8 @@
   flex-direction: row;
   text-decoration: none;
   vertical-align: middle;
-  border: solid $primaryBlue;
-  border-radius: 8px !important;
+  border: thin solid $primaryBlue;
+  border-radius: 5px !important;
   p {
     color: $primaryBlue !important;
     font-weight: 300;
