@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
   def show
     @prospect = set_params
     body = create_body(@prospect)
-    # send_prospect(@prospect, body)
+    send_prospect(@prospect, body)
   end
 
   private
